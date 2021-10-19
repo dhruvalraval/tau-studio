@@ -1,0 +1,91 @@
+.home_portfolio{
+    @extend %center;
+    
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    margin-top: 15rem;
+
+    @include media('<phone') {
+        justify-content: start;
+        align-items: flex-start;
+        margin-top: 5rem;
+    }
+}
+.home_work_titles{
+    align-self: flex-start;
+    margin-left: 8rem;
+    display: flex;
+    width: 33.3rem;
+    justify-items: end;
+    align-items: end;
+
+    @include media('<phone') {
+        width: 100%;
+        margin-left: 2.8rem;
+        justify-content: start;
+        align-items: flex-start;
+    }
+}
+
+.home_work_title{
+    margin-right: 1.4rem;
+    line-height: 1.2;
+}
+
+.home_work_number{
+    opacity: 1;
+    padding-bottom: 2.7rem;
+
+    @include media('<phone') {
+        opacity: 0;
+    }
+}
+
+.home_portfolio_wrapper{
+    width: 100%;
+    display: grid;
+    padding: 0 8.3rem;
+    grid-template-columns: 50% 50%;
+    column-gap: 1.5rem;
+
+    @include media('<phone') {
+        grid-template-columns: 100%;
+        width: 100%;
+        padding: 0 2.8rem;
+        column-gap: 0rem;
+        gap: 2rem;
+    }
+
+}
+
+.home_portfolio_work{
+    width: 88.7rem;
+    height: 80.8rem;
+    // filter: saturate(1);
+    // transition: all 0.5s ease;
+
+    // &:not(:hover) {
+    //     filter: saturate(0);
+    // }
+
+    @include media('<phone') {
+        width: 33.5rem;
+        height: 30.3rem;
+    }
+}
+
+.home_portfolio_img{
+    width: 86.7rem;
+    height: 78.6rem;
+    transition: all 0.5s ease;
+
+    &:hover{
+        border-radius: 5rem;
+    }
+
+    @include media('<phone') {
+        width: 33.5rem;
+        height: 30.3rem;
+    }
+}

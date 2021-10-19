@@ -1,0 +1,93 @@
+.home_brand_values{
+    position: relative;
+    width: 100%;
+    height: 120vh;
+    padding: 0 8.3rem;
+
+    @include media('<phone') {
+        height: 70vh;
+        padding: 0 2.8rem;
+    }
+}
+
+.home_brand_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    
+}
+
+.home_brand_values_details{
+    margin-top: 13.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 87.4rem;
+    margin-right: 2rem;
+
+    @include media('<phone') {
+        margin-right: 0rem;
+        width: 30rem;
+    }
+}
+
+.home_brand_statement_title{
+    line-height: 1;
+    
+    &:nth-child(3){
+        transform: translateY(-2.5rem);
+    }
+
+    @include media('<phone') {
+        line-height: 1.1;
+
+        &:nth-child(3){
+            transform: translateY(-0.4rem);
+        }
+    }
+}
+
+.home_brand_statement_title_migra{
+    font-family: $font-migra;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+.home_brand_statement_para{
+    margin-top: 5rem;
+    width: 77.3rem;
+    text-align: right;
+    opacity: 1;
+
+    @include media('<phone') {
+        opacity: 0;
+    }
+}
+
+.home_brand_statement_para_mobile{
+    margin-top: 5rem;
+    width: 77.3rem;
+    text-align: right;
+    opacity: 0;
+
+    @include media('<phone') {
+        opacity: 1;
+        margin-top: -5rem;
+        width: 100%;
+    }
+}
+
+.home_brand_value_title {
+    @extend %title-180;
+
+    position: absolute;
+    bottom: -8rem;
+    right: 7.5rem;
+    width: 174.6rem;
+    text-align: end;
+    line-height: 1.4;
+
+    @include media('<phone') {
+        display: none;
+    }
+}

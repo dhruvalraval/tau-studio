@@ -1,0 +1,26 @@
+@import './base/reset.scss';
+
+@import './utils/variables.scss';
+@import './utils/functions.scss';
+@import './utils/mixins.scss';
+@import './utils/vendors.scss';
+@import './utils/responsive.scss';
+
+@import './shared/links.scss';
+@import './shared/paragraph.scss';
+@import './shared/titles.scss';
+
+@import './base/fonts.scss';
+@import './base/base.scss';
+
+@import './layout/navigation.scss';
+@import './layout/contact.scss';
+@import './layout/portfolio-work.scss';
+@import './layout/video-section.scss';
+
+@import './pages/home/home.scss';
+@import './pages/home/home-brand.scss';
+@import './pages/home/home-services.scss';
+@import './pages/work/work.scss';
+@import './pages/services/services.scss';
+@import './pages/about/about.scss';
