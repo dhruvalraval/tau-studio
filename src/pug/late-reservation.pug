@@ -1,0 +1,37 @@
+extends base.pug
+
+block variables
+  -var template = 'latereservation'
+
+block content
+    .work_display(data-scroll-section)
+        .work_display_wrapper
+            .work_close
+                .work_close_line_one
+                .work_close_line_two
+            .work_display_container
+                .work_single_box
+                    img.work_single_img(src="../assets/img/late-reservation/1.jpg")
+                .work_double_box
+                    img.work_single_img(src="../assets/img/late-reservation/2.jpg")
+                    .work_double_box_late
+                        img.work_double_img(src="../assets/img/late-reservation/3.jpg")
+                        img.work_double_img(src="../assets/img/late-reservation/4.jpg")
+                .work_single_box
+                    img.work_single_img(src="../assets/img/late-reservation/5.jpg")
+                .work_single_box
+                    img.work_single_img(src="../assets/img/late-reservation/6.jpg")
+                .work_double_box
+                    img.work_double_img(src="../assets/img/late-reservation/7.jpg")
+                    img.work_double_img(src="../assets/img/late-reservation/8.jpg")
+                .work_single_box
+                    img.work_single_img(src="../assets/img/late-reservation/9.jpg")
+
+    .work_card.work_card_late
+        .work_card_button
+            .work_card_button_line_one
+            .work_card_button_line_two
+        h1.work_card_title_late LATE RESERVATION
+        p.work_card_paragraph Late Reservation is Theodore Coleman
+        h4.work_card_service.work_card_service_late SERVICES
+        p.work_card_services_paragraph.work_card_services_paragraph_late Naming, Brand Positioning, Identity, Language,  Art Direction & Advertising

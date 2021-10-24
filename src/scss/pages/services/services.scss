@@ -1,5 +1,5 @@
 .services_wrapper{
-    position: relative;
+    position: fixed;
     width: 100%;
     padding: 0 8.3rem;
     background: $color-everglade;
@@ -8,6 +8,7 @@
 
     @include media('<phone') {
         padding: 0 2.8rem;
+        position: relative;
     }
 
     @include media('>phone') {
@@ -141,8 +142,8 @@
 .services_list_column_one_title,
 .services_list_column_two_title{
     @extend %paragraph-24;
+    font-weight: 300;
 
-    font-weight: 800;
 
     @include media('<phone') {
         font-size: 2.4rem;
@@ -179,17 +180,22 @@
 
 .services_title{
     @extend %title-144;
+
+    line-height: 1;
 }   
 
 .service_text{
     @extend %paragraph-24;
 
+    transform: translateY(-100%);
     font-weight: 300;
     letter-spacing: 0.08rem;
     opacity: 1;
+    width:60rem;
 
     @include media('<phone') {
         opacity: 0;
+        display: none;
     }
 
 }

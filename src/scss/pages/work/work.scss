@@ -12,9 +12,9 @@
     gap: 13rem;
 
     @include media('<phone') {
-        padding: 0 2.4rem;
+        padding: 20rem 2.4rem 0;
         grid-template-rows: 70% 20%;
-        gap: 5rem;
+        gap: 1rem;
     }
 }
 

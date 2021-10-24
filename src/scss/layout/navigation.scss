@@ -2,7 +2,7 @@
     @extend %cover;
 
     color: $color-black;
-    position: fixed;
+    position: fixed;    
     top: 0;
     left: 0;
     pointer-events: none;
@@ -16,6 +16,7 @@
 
     @include media('<phone') {
         width: 100vw;
+        position: relative;
     }
 
 
@@ -42,6 +43,7 @@
 }
 
 .navigation_link{
+    font-size: 4rem;
     pointer-events: auto;
 
     @include media('<phone') {

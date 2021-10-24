@@ -54,6 +54,13 @@
     "IE 10"
   ],
   "dependencies": {
-    "lottie-web": "^5.7.14"
+    "gsap": "^3.8.0",
+    "imagesloaded": "^4.1.4",
+    "locomotive-scroll": "^4.1.2",
+    "lodash": "^4.17.21",
+    "lottie-web": "^5.7.14",
+    "normalize-wheel": "^1.0.1",
+    "prefix": "^1.0.0",
+    "stickybits": "^3.7.9"
   }
 }

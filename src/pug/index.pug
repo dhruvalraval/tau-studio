@@ -4,27 +4,26 @@ block variables
   -var template = 'home'
 
 block content
-    .home(data-backgorund="" data-color="")
-        .home_wrapper 
-            .home_hero_element
+    .home(data-backgorund="" data-color="" data-scroll-section)
+        .home_wrapper
+            .home_hero_element#home_top
                 .home_tau_logo
-                p.home_hero_title 
+                p.home_hero_title(data-animation="title") 
                     | BRANDING & PERFORMANCE MARKETING AGENCY
-                p.home_scroll ↓ Scroll
-            
+                p.home_scroll(data-animation="paragraphs") ↓ Scroll
             .home_statments
                 .home_true_love_element
                     .home_true_love_logo
                     p.home_true_love_logo_alt_text CRUE LOVE LOGO
                 .home_statement_title
-                    h1.home_statement_title_main We connect
-                    h1.home_statement_title_main_migra brands & consumers
-                    h1.home_statement_title_main through design.
-                    p.home_statement_title_sub Our team is built of visual storytellers & strategically data-driven minds, working with existing companies & launching new concepts to the world.
+                    h1.home_statement_title_main(data-animation="title") We connect
+                    h1.home_statement_title_main_migra(data-animation="title") brands & consumers
+                    h1.home_statement_title_main(data-animation="title") through design.
+                    p.home_statement_title_sub(data-animation="paragraphs") Our team is built of visual storytellers & strategically data-driven minds, working with existing companies & launching new concepts to the world.
             .home_portfolio
-                .home_work_titles
-                    h1.home_work_title Work
-                    h4.home_work_number //06
+                .home_work_titles(data-scroll data-scroll-sticky data-scroll-target='.home_portfolio')
+                    h1.home_work_title(data-animation="title") Work
+                    h4.home_work_number(data-animation="paragraphs") //06
                 .home_portfolio_wrapper
                     .home_portfolio_work
                         a.home_portfolio_work_link(href="")
@@ -52,14 +51,15 @@ block content
                         //- .home_portfolio_button IVY HILLS
             .home_brand_values
                 .home_brand_wrapper
-                    .home_brand_values_details
-                        h1.home_brand_statement_title We look
-                        h1.home_brand_statement_title_migra beyond the surface
-                        h1.home_brand_statement_title for what matters
-                        p.home_brand_statement_para Our team is built of visual storytellers & strategically data-driven minds, working with existing companies & launching new concepts to the world.
-                        p.home_brand_statement_para_mobile We design, create engaging and memorable digital experiences. We help our customers hhh  minimal solutions that improve the daily lives of humans by being ever more unique, creative and sustainable.
-                    h1.home_brand_value_title 
+                    .home_brand_values_details(data-scroll-speed="2" data-scroll)
+                        h1.home_brand_statement_title(data-animation="title") We look
+                        h1.home_brand_statement_title_migra(data-animation="title") beyond the surface
+                        h1.home_brand_statement_title(data-animation="title") for what matters
+                        p.home_brand_statement_para(data-animation="paragraphs") Our team is built of visual storytellers & strategically data-driven minds, working with existing companies & launching new concepts to the world.
+                        p.home_brand_statement_para_mobile(data-animation="paragraphs") We design, create engaging and memorable digital experiences. We help our customers hhh  minimal solutions that improve the daily lives of humans by being ever more unique, creative and sustainable.
+                    h1.home_brand_value_title(data-scroll-speed="3" data-scroll data-animation="title")
                         | WE DESIGN BRANDS
+                        br
                         | & TELL STORIES
             .home_services
                 .home_services_titles
@@ -72,21 +72,21 @@ block content
                             .home_services_list_column_one
                                 h4.home_services_list_column_one_title STRATEGY
                                 .home_services_list_column_one_wrapper 
-                                    h4.home_services_list_column_one_text A
-                                    h4.home_services_list_column_one_text B
-                                    h4.home_services_list_column_one_text C
-                                    h4.home_services_list_column_one_text D
+                                    h4.home_services_list_column_one_text(data-animation="service-para") A
+                                    h4.home_services_list_column_one_text(data-animation="service-para") B
+                                    h4.home_services_list_column_one_text(data-animation="service-para") C
+                                    h4.home_services_list_column_one_text(data-animation="service-para") D
                             .home_services_list_column_two
                                 h4.home_services_list_column_two_title //01
                                 .home_services_list_column_two_wrapper 
-                                    h4.home_services_list_column_two_text STRATEGY
-                                    h4.home_services_list_column_two_text BRAND POSITIONING
-                                    h4.home_services_list_column_two_text TONE OF VOICE
-                                    h4.home_services_list_column_two_text AUDITS
-                                    h4.home_services_list_column_two_text_mobile STRATEGY
-                                    h4.home_services_list_column_two_text_mobile BRAND POSITIONING
-                                    h4.home_services_list_column_two_text_mobile TONE OF VOICE
-                                    h4.home_services_list_column_two_text_mobile AUDITS
+                                    h4.home_services_list_column_two_text(data-animation="service-para") STRATEGY
+                                    h4.home_services_list_column_two_text(data-animation="service-para") BRAND POSITIONING
+                                    h4.home_services_list_column_two_text(data-animation="service-para") TONE OF VOICE
+                                    h4.home_services_list_column_two_text(data-animation="service-para") AUDITS
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") STRATEGY
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") BRAND POSITIONING
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") TONE OF VOICE
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") AUDITS
                         .home_services_details
                             p.home_services_details_text We ASSESS YOUR BRAND & PROVIDE A Suite of services from primary research to messaging strategy to communications Planning.
                     .home_services_row
@@ -94,21 +94,21 @@ block content
                             .home_services_list_column_one
                                 h4.home_services_list_column_one_title BRANDING
                                 .home_services_list_column_one_wrapper 
-                                    h4.home_services_list_column_one_text A
-                                    h4.home_services_list_column_one_text B
-                                    h4.home_services_list_column_one_text C
-                                    h4.home_services_list_column_one_text D
+                                    h4.home_services_list_column_one_text(data-animation="service-para") A
+                                    h4.home_services_list_column_one_text(data-animation="service-para") B
+                                    h4.home_services_list_column_one_text(data-animation="service-para") C
+                                    h4.home_services_list_column_one_text(data-animation="service-para") D
                             .home_services_list_column_two
                                 h4.home_services_list_column_two_title //02
                                 .home_services_list_column_two_wrapper 
-                                    h4.home_services_list_column_two_text NAMING
-                                    h4.home_services_list_column_two_text BRAND IDENTITY
-                                    h4.home_services_list_column_two_text BRAND BOOKS
-                                    h4.home_services_list_column_two_text BRAND APPLICATION
-                                    h4.home_services_list_column_two_text_mobile NAMING
-                                    h4.home_services_list_column_two_text_mobile BRAND IDENTITY
-                                    h4.home_services_list_column_two_text_mobile BRAND BOOKS
-                                    h4.home_services_list_column_two_text_mobile BRAND APPLICATION
+                                    h4.home_services_list_column_two_text(data-animation="service-para") NAMING
+                                    h4.home_services_list_column_two_text(data-animation="service-para") BRAND IDENTITY
+                                    h4.home_services_list_column_two_text(data-animation="service-para") BRAND BOOKS
+                                    h4.home_services_list_column_two_text(data-animation="service-para") BRAND APPLICATION
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") NAMING
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") BRAND IDENTITY
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") BRAND BOOKS
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") BRAND APPLICATION
                         .home_services_details
                             p.home_services_details_text We deliver a comprehensive, unique, and authentic brand Personality that reaches the target audience while responding to industry challenges.
                     .home_services_row
@@ -116,21 +116,21 @@ block content
                             .home_services_list_column_one
                                 h4.home_services_list_column_one_title DESIGN
                                 .home_services_list_column_one_wrapper 
-                                    h4.home_services_list_column_one_text A
-                                    h4.home_services_list_column_one_text B
-                                    h4.home_services_list_column_one_text C
-                                    h4.home_services_list_column_one_text D
+                                    h4.home_services_list_column_one_text(data-animation="service-para") A
+                                    h4.home_services_list_column_one_text(data-animation="service-para") B
+                                    h4.home_services_list_column_one_text(data-animation="service-para") C
+                                    h4.home_services_list_column_one_text(data-animation="service-para") D
                             .home_services_list_column_two
                                 h4.home_services_list_column_two_title //03
                                 .home_services_list_column_two_wrapper 
-                                    h4.home_services_list_column_two_text CREATIVE DIRECTION & IDEAS
-                                    h4.home_services_list_column_two_text BRAND WEB DEVELOPMENT & UX/UI DESIGN
-                                    h4.home_services_list_column_two_text PACKAGING
-                                    h4.home_services_list_column_two_text COLLATERAL DESIGN
-                                    h4.home_services_list_column_two_text_mobile CREATIVE DIRECTION
-                                    h4.home_services_list_column_two_text_mobile UX/UI DESIGN & WEB DEV
-                                    h4.home_services_list_column_two_text_mobile PACKAGING
-                                    h4.home_services_list_column_two_text_mobile COLLATERAL DESIGN
+                                    h4.home_services_list_column_two_text(data-animation="service-para") CREATIVE DIRECTION & IDEAS
+                                    h4.home_services_list_column_two_text(data-animation="service-para") BRAND WEB DEVELOPMENT & UX/UI DESIGN
+                                    h4.home_services_list_column_two_text(data-animation="service-para") PACKAGING
+                                    h4.home_services_list_column_two_text(data-animation="service-para") COLLATERAL DESIGN
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") CREATIVE DIRECTION
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") UX/UI DESIGN & WEB DEV
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") PACKAGING
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") COLLATERAL DESIGN
                         .home_services_details
                             p.home_services_details_text We create cohesive design systems that revolve around consumer experience. We develop visual identities for brands that go well beyond how they look or speak.
                     .home_services_row
@@ -138,21 +138,21 @@ block content
                             .home_services_list_column_one
                                 h4.home_services_list_column_one_title ADVERTISING
                                 .home_services_list_column_one_wrapper 
-                                    h4.home_services_list_column_one_text A
-                                    h4.home_services_list_column_one_text B
-                                    h4.home_services_list_column_one_text C
-                                    h4.home_services_list_column_one_text D
+                                    h4.home_services_list_column_one_text(data-animation="service-para") A
+                                    h4.home_services_list_column_one_text(data-animation="service-para") B
+                                    h4.home_services_list_column_one_text(data-animation="service-para") C
+                                    h4.home_services_list_column_one_text(data-animation="service-para") D
                             .home_services_list_column_two
                                 h4.home_services_list_column_two_title //04
                                 .home_services_list_column_two_wrapper 
-                                    h4.home_services_list_column_two_text CREATIVE DIRECTION
-                                    h4.home_services_list_column_two_text VIDEO PRODUCTION
-                                    h4.home_services_list_column_two_text PHOTOGRAPHY
-                                    h4.home_services_list_column_two_text CASTING
-                                    h4.home_services_list_column_two_text_mobile CREATIVE DIRECTION
-                                    h4.home_services_list_column_two_text_mobile VIDEO PRODUCTION
-                                    h4.home_services_list_column_two_text_mobile PHOTOGRAPHY
-                                    h4.home_services_list_column_two_text_mobile CASTING
+                                    h4.home_services_list_column_two_text(data-animation="service-para") CREATIVE DIRECTION
+                                    h4.home_services_list_column_two_text(data-animation="service-para") VIDEO PRODUCTION
+                                    h4.home_services_list_column_two_text(data-animation="service-para") PHOTOGRAPHY
+                                    h4.home_services_list_column_two_text(data-animation="service-para") CASTING
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") CREATIVE DIRECTION
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") VIDEO PRODUCTION
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") PHOTOGRAPHY
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") CASTING
                         .home_services_details
                             p.home_services_details_text We DEVELOP CONTENT THROUGH MULTIPLE VISUAL MEDIUMS That connect to consumer. We create concepts & Direct the visual work from start to finish.
                     .home_services_row
@@ -160,21 +160,21 @@ block content
                             .home_services_list_column_one
                                 h4.home_services_list_column_one_title MARKETING
                                 .home_services_list_column_one_wrapper 
-                                    h4.home_services_list_column_one_text A
-                                    h4.home_services_list_column_one_text B
-                                    h4.home_services_list_column_one_text C
-                                    h4.home_services_list_column_one_text D
+                                    h4.home_services_list_column_one_text(data-animation="service-para") A
+                                    h4.home_services_list_column_one_text(data-animation="service-para") B
+                                    h4.home_services_list_column_one_text(data-animation="service-para") C
+                                    h4.home_services_list_column_one_text(data-animation="service-para") D
                             .home_services_list_column_two
                                 h4.home_services_list_column_two_title //05
                                 .home_services_list_column_two_wrapper 
-                                    h4.home_services_list_column_two_text SOCIAL MEDIA STRATEGY / CUSTOMER ACQUISITION STRATEGY
-                                    h4.home_services_list_column_two_text CAMPAIGN MANAGEMENT / AUDIENCE TARGETING AND SEGMENTATION
-                                    h4.home_services_list_column_two_text SEO / SEM, AFFILIATE AND DISPLAY
-                                    h4.home_services_list_column_two_text ORGANIC AND PAID MARKETING
-                                    h4.home_services_list_column_two_text_mobile SOCIAL MEDIA MGMT.
-                                    h4.home_services_list_column_two_text_mobile CAMPAIGN MGMT. 
-                                    h4.home_services_list_column_two_text_mobile SEO / SEM
-                                    h4.home_services_list_column_two_text_mobile AUDIENCE TARGETING
+                                    h4.home_services_list_column_two_text(data-animation="service-para") SOCIAL MEDIA STRATEGY / CUSTOMER ACQUISITION STRATEGY
+                                    h4.home_services_list_column_two_text(data-animation="service-para") CAMPAIGN MANAGEMENT / AUDIENCE TARGETING AND SEGMENTATION
+                                    h4.home_services_list_column_two_text(data-animation="service-para") SEO / SEM, AFFILIATE AND DISPLAY
+                                    h4.home_services_list_column_two_text(data-animation="service-para") ORGANIC AND PAID MARKETING
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") SOCIAL MEDIA MGMT.
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") CAMPAIGN MGMT. 
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") SEO / SEM
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") AUDIENCE TARGETING
                         .home_services_details
                             p.home_services_details_text We Craft A Strategy designed For Your Brand’s Target audience TO OPTIMIZE CONVERSIONS. WE IDENTIFY YOUR CUSTOMER & CONVERT THEM INTO CONSUMERS OF YOUR BRAND.
                     .home_services_row
@@ -182,32 +182,32 @@ block content
                             .home_services_list_column_one
                                 h4.home_services_list_column_one_title CAMPAIGNS
                                 .home_services_list_column_one_wrapper 
-                                    h4.home_services_list_column_one_text A
-                                    h4.home_services_list_column_one_text B
-                                    h4.home_services_list_column_one_text C
-                                    h4.home_services_list_column_one_text D
+                                    h4.home_services_list_column_one_text(data-animation="service-para") A
+                                    h4.home_services_list_column_one_text(data-animation="service-para") B
+                                    h4.home_services_list_column_one_text(data-animation="service-para") C
+                                    h4.home_services_list_column_one_text(data-animation="service-para") D
                             .home_services_list_column_two
                                 h4.home_services_list_column_two_title //06
                                 .home_services_list_column_two_wrapper 
-                                    h4.home_services_list_column_two_text CONTENT & CAMPAIGN STRATEGY
-                                    h4.home_services_list_column_two_text CONTENT & CAMPAIGN DEVELOPMENT
-                                    h4.home_services_list_column_two_text PRODUCTION MANAGEMENT
-                                    h4.home_services_list_column_two_text POST PRODUCTION OVERSIGHT
-                                    h4.home_services_list_column_two_text_mobile CONTENT STRATEGY
-                                    h4.home_services_list_column_two_text_mobile CAMPAIGN STRATEGY
-                                    h4.home_services_list_column_two_text_mobile PRODUCTION MGMT.
-                                    h4.home_services_list_column_two_text_mobile POST PROD. OVERSIGHT                                    
+                                    h4.home_services_list_column_two_text(data-animation="service-para") CONTENT & CAMPAIGN STRATEGY
+                                    h4.home_services_list_column_two_text(data-animation="service-para") CONTENT & CAMPAIGN DEVELOPMENT
+                                    h4.home_services_list_column_two_text(data-animation="service-para") PRODUCTION MANAGEMENT
+                                    h4.home_services_list_column_two_text(data-animation="service-para") POST PRODUCTION OVERSIGHT
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") CONTENT STRATEGY
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") CAMPAIGN STRATEGY
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") PRODUCTION MGMT.
+                                    h4.home_services_list_column_two_text_mobile(data-animation="service-para") POST PROD. OVERSIGHT                                    
                         .home_services_details
                             p.home_services_details_text We Build Out Comprehensive campaigns designed for long - term BranD Growth. We  ManAGE DIGITAL ASSETS post CREATION & Produce future CONTENT TO MAINTAIN BRAND INTEGRITY.
             .home_video_section
                 .home_video_section_details 
-                    h1.home_video_section_details_title
+                    h1.home_video_section_details_title(data-animation="title")
                         | WE PRODUCE 
                         br
                         | VIDEO CONTENT TO 
                         br
                         | SHOWCASE YOUR BRAND.       
-                    h1.home_video_section_details_title_mobile_home
+                    h1.home_video_section_details_title_mobile_home(data-animation="title")
                         | Video production
                         br
                         | marketing in NYC
@@ -217,46 +217,45 @@ block content
                         | in developing content that represents your brands voice. MeltyCone has experience working with companies like 
                         span.home_video_section_details_para_migra Kiehls, The Body Shop, People Magazine, & more
                     p.home_video_section_details_para_mobile At Tau, we focus on getting to the core of your aspirations and goals. We develop a concise strategy to amplify your brand’s digital identity for the present & future.
-
                 .home_video_section_element
                     img.home_video_section_element_back(src="../assets/img/image22.png")
                     img.home_video_section_element_logos(src="../assets/img/logos.png")
                 .home_video_section_footer
-                    h1.home_video_section_footer_title meltycone.com
+                    h1.home_video_section_footer_title(data-animation="title") meltycone.com
                     .home_video_section_footer_link_list
                         a.home_video_section_footer_links(href="") IG
                         a.home_video_section_footer_links(href="") IN
                         a.home_video_section_footer_links_img_link(href="") 
                             img.home_video_section_footer_links_img(alt="arrow link to meltycone" src="../assets/img/arrow.png")
-            .home_contact_form
+            .home_contact_form(data-scroll)
                 .home_contact_wrapper
                     .home_contact_form_details
                         .home_contact_form_details_wrapper
                             .home_contact_form_details_title_wrapper
-                                h1.home_contact_form_details_title LET'S CHAT!
-                                h1.home_contact_form_details_title_mobile CONTACT
+                                h1.home_contact_form_details_title(data-animation="title") LET'S CHAT!
+                                h1.home_contact_form_details_title_mobile(data-animation="title") CONTACT
                                 h4.home_contact_form_details_sub KEEP IN TOUCH
                             .home_contact_form_details_links_wrapper
                                 a.home_contact_form_details_links(href="") IN
                                 a.home_contact_form_details_links(href="") IG
                                 a.home_contact_form_details_links(href="") BE
-                        p.home_contact_form_details_para We craft brands that are authentic, differentiated, and poised for global growth.
+                        p.home_contact_form_details_para(data-animation="service-para") We craft brands that are authentic, differentiated, and poised for global growth.
                     .home_contact_form_wrapper
                         form.contact_form(action= "", method= "post")
                             .contact_form_field_row
-                                input.contact_form_field(type="text", name="name" value="[Your name]" autocomplete="off")
-                                //- span.contact_form_name [Your name]
+                                input.contact_form_field(type="text", name="name" value="" autocomplete="off")
+                                span.contact_form_name(data-animation="paragraphs") [Your name]
                             .contact_form_field_row
-                                input.contact_form_field(type="email", name="email", value="[Your email]" autocomplete="off")
-                                //- span.contact_form_name [Your email]
+                                input.contact_form_field(type="email", name="email", value="" autocomplete="off")
+                                span.contact_form_name(data-animation="paragraphs") [Your email]
                             input.contact_form_submit_button(type="image", src="../assets/img/arrow.png", alt="submit_button", name="submit")
                 .home_footer
                     .home_footer_timestamp
                         img.home_footer_timestamp_img(src="../assets/img/world.png", alt="world_image")
-                        h1.home_footer_timestamp_city New York
-                        h1.home_footer_timestamp_time [12:00]
+                        h1.home_footer_timestamp_city(data-animation="title") New York
+                        h1.home_footer_timestamp_time(data-animation="title") [12:00]
                     .home_footer_top
-                        a.home_footer_top_link Back To Top
+                        a.home_footer_top_link(data-animation="title") Back To Top
 
                     
 

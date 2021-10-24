@@ -164,6 +164,8 @@ span.home_video_section_details_bold{
     width: 15rem;
     height: 9.4rem;
     text-align: center;
+    background-size: 300%;
+    transition: all 0.6s;
 
     @include media('<phone') {
         border: 2px solid $color-black;
@@ -174,13 +176,25 @@ span.home_video_section_details_bold{
     }
 }
 
+.home_video_section_footer_links:hover {
+    color: $color-ecru-white;
+    background-position: 100%;
+    transform: translateY(-0.5rem);
+    background-image: linear-gradient(120deg, $color-ecru-white 50%, $color-tulip-tree 50%);
+}
+
 .home_video_section_footer_links_img_link{
     width: 15rem;
+    transition: all 0.6s;
     height: 10rem;
 
     @include media('<phone') {
         display: none;
     }
+}
+
+.home_video_section_footer_links_img_link:hover {
+    transform: translate(0.5rem, -0.5rem);
 }
 
 .home_video_section_footer_links_img{

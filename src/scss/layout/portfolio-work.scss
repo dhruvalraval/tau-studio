@@ -16,9 +16,12 @@
     align-self: flex-start;
     margin-left: 8rem;
     display: flex;
-    width: 33.3rem;
+    width: 100%;
     justify-items: end;
+    z-index: $z-indexes('workTitle');
     align-items: end;
+    background-color: $color-ecru-white;
+    user-select: none;
 
     @include media('<phone') {
         width: 100%;
@@ -39,6 +42,7 @@
 
     @include media('<phone') {
         opacity: 0;
+        display: none;
     }
 }
 
@@ -47,7 +51,7 @@
     display: grid;
     padding: 0 8.3rem;
     grid-template-columns: 50% 50%;
-    column-gap: 1.5rem;
+    column-gap: 1.2rem;
 
     @include media('<phone') {
         grid-template-columns: 100%;
@@ -62,6 +66,7 @@
 .home_portfolio_work{
     width: 88.7rem;
     height: 80.8rem;
+    overflow: hidden;
     // filter: saturate(1);
     // transition: all 0.5s ease;
 
@@ -75,10 +80,15 @@
     }
 }
 
+.home_portfolio_work_link{
+    overflow: hidden;
+}
+
 .home_portfolio_img{
-    width: 86.7rem;
-    height: 78.6rem;
+    width: 99%;
+    height: 99%;
     transition: all 0.5s ease;
+    object-fit: cover;
 
     &:hover{
         border-radius: 5rem;

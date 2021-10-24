@@ -12,6 +12,7 @@
 
 @import './base/fonts.scss';
 @import './base/base.scss';
+@import './utils/locomotive.scss';
 
 @import './layout/navigation.scss';
 @import './layout/contact.scss';
@@ -24,3 +25,5 @@
 @import './pages/work/work.scss';
 @import './pages/services/services.scss';
 @import './pages/about/about.scss';
+
+@import './pages/portfolio/cruelove.scss';

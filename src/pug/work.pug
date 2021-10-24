@@ -4,25 +4,24 @@ block variables
   -var template = 'work'
 
 block content
-    .work_links
+    .work_links(data-scroll-section)
         .work_links_wrapper
             .work_links_list_wrapper
-                a.work_links_list(href="/cruelove") CRUE LOVE
-                span.work_links_list_slash //
-                a.work_links_list(href="/baucee") BAUCEE's 
+                a.work_links_list(href="/cruelove.html" data-animation="title") CRUE LOVE
+                span.work_links_list_slash(data-animation="title") //
+                a.work_links_list(href="./baucees.html" data-animation="title") BAUCEE's 
             .work_links_list_wrapper
-                a.work_links_list(href="/latereservation") LATE RESERVATION
-                span.work_links_list_slash //
-                a.work_links_list(href="/ivyhills") IVY HILLS
+                a.work_links_list(href="/late-reservation.html" data-animation="title") LATE RESERVATION
+                span.work_links_list_slash(data-animation="title") //
+                a.work_links_list(href="/ivyhills" data-animation="title") IVY HILLS
             .work_links_list_wrapper
-                a.work_links_list(href="/baucee") BRIO LUEUR
-                span.work_links_list_slash //
-                a.work_links_list(href="/pzac") PZ A + C
+                a.work_links_list(href="" data-animation="title") BRIO LUEUR
+                span.work_links_list_slash(data-animation="title") //
+                a.work_links_list(href="./pzac.html" data-animation="title") PZ A + C
         .work_details
-            p.work_details_text
+            p.work_details_text(data-animation="paragraphs")
                 | We listen & tell stories.
-                br
+                br(data-animation="paragraphs")
                 | We think & design brands.
-                br
+                br(data-animation="paragraphs")
                 | We create what’s next for tomorrow.
-    
