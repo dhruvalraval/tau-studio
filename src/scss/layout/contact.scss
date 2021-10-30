@@ -58,16 +58,17 @@
     opacity: 1;
 
     @include media('<phone') {
-        opacity: 0;
+        display: none;
     }
 }
 
 .home_contact_form_details_title_mobile{
     @extend %title-100;
-    opacity: 0;
+    display: none;
 
     @include media('<phone') {
         width: 30rem;
+        display: inline-block;
         opacity: 1;
     }
 }
@@ -82,7 +83,7 @@
 
     @include media('<phone') {
         font-size: 1.2rem;
-        bottom: 0.5rem;
+        bottom: 1rem;
         right: 0rem;
         transform: translate(0%, 0%);
     }
@@ -155,7 +156,7 @@
     gap: 3rem;
 
     @include media('<phone') {
-        gap: 2rem;
+        gap: 1rem;
     }
 
 }
@@ -183,7 +184,7 @@
     height: 15.4rem;
 
     @include media('<phone') {
-        height: 8rem;
+        height: 6rem;
     }
 
 }

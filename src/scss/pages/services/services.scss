@@ -2,8 +2,6 @@
     position: fixed;
     width: 100%;
     padding: 0 8.3rem;
-    background: $color-everglade;
-    color: $color-ecru-white;
     overflow: hidden;
 
     @include media('<phone') {

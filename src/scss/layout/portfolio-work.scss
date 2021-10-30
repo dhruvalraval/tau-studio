@@ -14,31 +14,88 @@
 }
 .home_work_titles{
     align-self: flex-start;
-    margin-left: 8rem;
-    display: flex;
+    padding: 3rem 8.3rem;
     width: 100%;
-    justify-items: end;
-    z-index: $z-indexes('workTitle');
-    align-items: end;
+    z-index: 99999999;
     background-color: $color-ecru-white;
     user-select: none;
 
+    border-bottom-right-radius: 15rem;
+    border-bottom-left-radius: 15rem;
+
     @include media('<phone') {
         width: 100%;
-        margin-left: 2.8rem;
-        justify-content: start;
-        align-items: flex-start;
+        padding: 1.2rem 2.8rem;
+        border-bottom-right-radius: 5rem;
+        border-bottom-left-radius: 5rem;
+    }
+}
+
+.home_work_wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
+    grid-template-rows: 100%;
+    align-items: end;
+    justify-items: center;
+    border-radius: 7rem;
+    border: 1px solid $color-black;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+
+    @include media('<phone') {
+        border: 1px solid $color-black;
+        margin-bottom: 0.5rem;
+        padding: 0 4rem;
     }
 }
 
 .home_work_title{
     margin-right: 1.4rem;
     line-height: 1.2;
+
+    @include media('<phone') {
+        margin-right: 0rem;
+    }
 }
 
 .home_work_number{
     opacity: 1;
     padding-bottom: 2.7rem;
+    justify-self: start;
+
+    @include media('<phone') {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.home_project_title_wrapper{
+    height: 11.2rem;
+    width: 100%;
+    align-self: center;
+    position: relative;
+    border-radius: 6rem;
+    border: 1px solid $color-black;
+    display: grid;
+    place-items: center;
+
+    @include media('<phone') {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.home_project_title {
+    @extend %title-98;
+
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+    opacity: 0;
+    transition: 0.4s opacity ease;
 
     @include media('<phone') {
         opacity: 0;

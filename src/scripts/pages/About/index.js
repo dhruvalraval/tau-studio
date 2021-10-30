@@ -6,6 +6,8 @@ export default class About extends Page {
             id: 'about',
             element: '.about',
         })
+        
+        console.log('about-page')
     }
 }
 

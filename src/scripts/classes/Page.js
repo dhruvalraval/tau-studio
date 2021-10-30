@@ -1,9 +1,9 @@
-import GSAP from 'gsap'
+import gsap from 'gsap'
 import each from 'lodash/each'
 import map from 'lodash/map'
 import Prefix from 'prefix'
 
-import Animation from './Animation'
+import { ColorManager } from './Colors'
 import Title from '../animations/Titles'
 import Paragraph from '../animations/Paragraph'
 import Link from '../animations/Link'
@@ -26,6 +26,8 @@ export default class Page {
 
         this.prefixTransform = Prefix('transform')
 
+        this.cardAnimation()
+
         // this.scroll = {
         //     current: 0,
         //     target: 0,
@@ -37,7 +39,6 @@ export default class Page {
     create() {
         this.element = document.querySelector(this.selector)
         this.elements = {}
-
 
         each(this.selectorChildren, (entry, key) => {
             if (entry instanceof window.HTMLElement || entry instanceof window.NodeList){
@@ -55,15 +56,17 @@ export default class Page {
               }
         })
 
+		
         // this.scroll = {
-        //     current: 0,
-        //     target: 0,
-        //     last: 0,
-        //     limit: 0
-        // }
-
-        this.createPreloadImages()
-        this.createAnimations()
+			//     current: 0,
+			//     target: 0,
+			//     last: 0,
+			//     limit: 0
+			// }
+		console.log('id: ',this.id)	
+		this.createPreloadImages()
+		this.createAnimations()
+		this.cardAnimation()
     }
 
     createPreloadImages() {
@@ -107,6 +110,94 @@ export default class Page {
     /**
      * ANIMATIONS
      */
+
+     show () {
+        return new Promise(resolve => {
+          ColorManager.change({
+            backgroundColor: this.element.getAttribute('data-background'),
+            color: this.element.getAttribute('data-color')
+          })
+    
+            // this.animationIn = gsap.timeline()
+            // this.animationIn.fromTo(this.element,  {
+            //   autoAlpha: 0
+            // }, {
+            //   autoAlpha: 1
+            // })
+          
+    
+        //   this.animationIn.call(_ => {
+        //     this.addEventListeners()
+        //     resolve()
+        //   })
+        })
+      }
+    
+      hide () {
+        return new Promise(resolve => {
+          this.removeEventListeners()
+    
+          this.animationOut = gsap.timeline()
+    
+          this.animationOut.to(this.element, {
+            autoAlpha: 0,
+            onComplete: resolve
+          })
+        })
+      }
+    
+	cardAnimation() {
+		this.button = document.querySelector('.work_card_button')
+        this.card = document.querySelector('.work_card')
+        this.para = document.querySelector('.work_card_paragraph')
+        this.service = document.querySelector('.work_card_service')
+        this.serPara = document.querySelector('.work_card_service_paragraph')
+
+		if(this.button) {
+			
+			this.button.addEventListener('click', _ => {
+				this.button.classList.toggle('closed')
+				this.card.classList.toggle('shrink')
+				if(this.card.classList.contains('shrink') && this.button.classList.contains('closed')){
+					gsap.to(this.para, {
+						autoAlpha: 0,
+						duration: 0.2, 
+						ease: 'Power2.easeOut'
+					})
+					gsap.to(this.service, {
+						autoAlpha: 0,
+						duration: 0.2, 
+						ease: 'Power2.easeOut'
+					})
+					gsap.to(this.serPara, {
+						autoAlpha: 0,
+						duration: 0.2, 
+						ease: 'Power2.easeOut'
+					})
+				} else {
+					gsap.to(this.para, {
+						autoAlpha: 1,
+						duration: 0.4, 
+						delay: 0.2,
+						ease: 'Power2.easeIn'
+					})
+					gsap.to(this.service, {
+						autoAlpha: 1,
+						duration: 0.2, 
+						delay: 0.2,
+						ease: 'Power2.easeIn'
+					})
+					gsap.to(this.serPara, {
+						autoAlpha: 1,
+						duration: 0.2, 
+						delay: 0.2,
+						ease: 'Power2.easeIn'
+					})
+				}
+				
+			})
+		}
+	}
     
     //INIT BARBA
 
@@ -147,9 +238,9 @@ export default class Page {
      * LOOP
      */
     update () {
-        // this.scroll.target = GSAP.utils.clamp(0, this.scroll.limit, this.scroll.target)
+        // this.scroll.target = gsap.utils.clamp(0, this.scroll.limit, this.scroll.target)
 
-        // this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.08 )
+        // this.scroll.current = gsap.utils.interpolate(this.scroll.current, this.scroll.target, 0.08 )
 
         // if(this.element) {
         //     this.element.style[this.prefixTransform] = `translateY(-${this.scroll.current}px)`

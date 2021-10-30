@@ -1,8 +1,8 @@
 .navigation{
-    @extend %cover;
-
+    // @extend %cover;
+    width: 100%;
     color: $color-black;
-    position: fixed;    
+    position: absolute;    
     top: 0;
     left: 0;
     pointer-events: none;
@@ -16,7 +16,7 @@
 
     @include media('<phone') {
         width: 100vw;
-        position: relative;
+        position: absolute;
     }
 
 
@@ -51,7 +51,10 @@
     }
 }
 .navigation_list {
-  pointer-events: auto;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
     @include media('<phone') {
         // display: none;

@@ -1,4 +1,6 @@
 import Page from "../../classes/Page"
+import gsap from "gsap"
+
 
 export default class LateReservation extends Page {
     constructor() {

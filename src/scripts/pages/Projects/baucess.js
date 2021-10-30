@@ -1,4 +1,6 @@
 import Page from "../../classes/Page"
+import gsap from "gsap"
+
 
 export default class Baucees extends Page {
     constructor() {
@@ -6,7 +8,6 @@ export default class Baucees extends Page {
             id: 'baucees',
             element: '.work_display',
         })
-
     }
 }
 

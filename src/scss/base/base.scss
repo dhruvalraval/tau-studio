@@ -58,59 +58,67 @@ img{
     //     opacity: 0;
     transition: 0.4s opacity ease;
     //     vertical-align: middle;
-    
+
     //     &.loaded {
         //        opacity: 1;
         //     }
-    }
+}
+
+canvas{
+    pointer-events: none;
+    position: relative;
+    z-index: z('canvas');
+}
+
+button{
+    color: inherit;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
     
-    canvas{
-        pointer-events: none;
-        position: relative;
-    }
+.content{
+    top: 0;
+    left: 0;
+    position: absolute;
+    // height: 100%;
+    width: 100%;
+    overflow: hidden;
+    max-width: 192rem;
+    z-index: z("content");
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
     
-    button{
-        color: inherit;
-        background: none;
-        outline: none;
-        cursor: pointer;
-        border: none;
-    }
-    
-    .content{
-        top: 0;
-        left: 0;
-        position: absolute;
-        // height: 100%;
-        width: 100%;
+[data-animation="title"],
+[data-animation="label"],
+[data-animation="paragraph"] {
+    span{
+        display: inline-block;
         overflow: hidden;
-        max-width: 192rem;
     }
+}
+
+[data-animations="title"]{
+        // line-height: 1;
+    opacity: 0;
     
-    [data-animation="title"],
-    [data-animation="label"],
-    [data-animation="paragraph"] {
-        span{
-            display: inline-block;
-            overflow: hidden;
-        }
+    span{
+        display: inline-block;
+        overflow: hidden;
     }
+}
 
-    [data-animations="title"]{
-            // line-height: 1;
-        opacity: 0;
-        
-        span{
-            display: inline-block;
-            overflow: hidden;
-        }
+[data-animations="service-para"]{
+    line-height: 1;
+    opacity: 0;
+    span{
+        display: inline-block;
+        overflow: hidden;
     }
-
-    [data-animations="service-para"]{
-        line-height: 1;
-        opacity: 0;
-        span{
-            display: inline-block;
-            overflow: hidden;
-        }
 }

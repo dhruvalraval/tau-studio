@@ -1,12 +1,14 @@
 .home_brand_values{
     position: relative;
     width: 100%;
-    height: 100%;
-    padding: 0 8.3rem;
+    height: 100vh;
+    padding: 10rem 8.3rem;
     @include media('<phone') {
         min-height: 70vh;
         padding: 0 2.8rem;
     }
+    display: grid;
+    place-items: center end;
 }
 
 .home_brand_wrapper{
@@ -22,7 +24,7 @@
 }
 
 .home_brand_values_details{
-    margin-top: 5.6rem;
+    margin-top: 10rem;
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -90,6 +92,18 @@
         opacity: 1;
         margin-top: 5rem;
         width: 100%;
+    }
+}
+.home_brand_value_title_wrapper{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center end;
+    padding: 0 8.3rem;
+
+    @include media('<phone') {
+        display: none;
     }
 }
 

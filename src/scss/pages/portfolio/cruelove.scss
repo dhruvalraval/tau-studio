@@ -124,12 +124,6 @@
     }
 }
 
-.work_card.work_card_late{
-    @include media('<phone') {
-        grid-template-rows: 30% 10% 15% 15% 30%;
-    }
-}
-
 .work_card_button {
     @include media('<phone'){
 
@@ -155,26 +149,36 @@
             border-radius: 17px;
         }
 
+        // &::before{
+        //     content: " ";
+        //     position: absolute;
+        //     display: block;
+        //     background-color: $color-ecru-white;
+        //     width: 3px;
+        //     margin-left: -1.5px;
+        //     left: 50%;
+        //     top: 5px;
+        //     bottom: 5px;
+        //     z-index: 9;
+        //     border-radius: 17px;
+        // }
+    }
+}
+
+.work_card_button.closed{
         &::before{
             content: " ";
             position: absolute;
             display: block;
             background-color: $color-ecru-white;
             width: 3px;
-            margin-left: -1px;
+            margin-left: -1.8px;
             left: 50%;
             top: 5px;
             bottom: 5px;
             z-index: 9;
             border-radius: 17px;
         }
-    }
-}
-.work_card_button::after {
-
-}
-.work_card_button::before {
-
 }
 
 // .work_card_button{

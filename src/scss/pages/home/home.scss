@@ -29,17 +29,95 @@
 
 .home_hero_title {
     position: absolute;
-    top: 56.1rem;
-    right: 8.1rem;
+    top: 43.3rem;
+    right: 9.1rem;
     width: 51.6rem;
     text-align: right;
 
     @include media('<phone') {
         font-size: 3rem;
-        top: 20rem;
-        left: 2.8rem;
-        width: 30rem;
+        top: 19.8rem;
+        left: 2rem;
+        width: 100%;
         text-align: left;
+    }
+}
+
+.slider_wrapper{
+    position: absolute;
+    top: 67.1rem;
+    right: 9.1rem;
+    width: 35.2rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @include media('<phone'){
+        top: 31.2rem;
+        left: 2rem;
+        height: 2.1rem;
+        width: 16.8rem;
+    }
+}
+
+.slider_color, .slider_process {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; 
+    height: 4.4rem;
+    padding: 0.5rem;
+    background: $color-ecru-white;
+    outline: none; 
+    opacity: 1;
+    transition: opacity .2s;
+    border: 1px solid $color-black;
+    border-radius: 5rem;
+    cursor: pointer;
+    scroll-behavior: smooth;
+    z-index:1;
+    &::-webkit-slider-thumb{
+         -webkit-appearance: none; 
+          appearance: none;
+          width: 3rem;
+          height: 3rem; 
+          background: $color-tulip-tree; 
+          cursor: pointer; 
+            border-radius: 3rem;
+            transition: .5s ease;
+            
+        
+        &:focus , &:active{
+            transform: scale(0.8);
+            box-shadow:  0 0 10px $color-tulip-tree;
+        }
+    }
+
+    @include media('<phone') {
+        width: 100%;
+        height: 100%;
+
+        &::-webkit-slider-thumb{
+            width: 1.5rem;
+            height: 1.5rem; 
+            background: $color-tulip-tree; 
+            cursor: pointer; 
+            border-radius: 1.5rem;
+            transition: .5s ease;
+               
+            
+            &:focus , &:active{
+                transform: scale(0.8);
+                box-shadow:  0 0 10px $color-tulip-tree;
+            }
+       }
+    }
+}
+
+.slider_color{
+    
+    @include media('<phone'){
+        display: none;
     }
 }
 
@@ -129,7 +207,7 @@
         // border: 1px solid rgb(208, 0, 0);
     // }
 
-    margin: -2rem  0;
+    margin: -4rem  0;
     &:nth-child(3){
         transform: translateY(-3rem);
 
@@ -142,6 +220,7 @@
 
     @include media('<phone') {
         line-height: 1.1;
+        margin: -2rem  0;
 
         &:nth-child(3){
             transform: translateY(-0.4rem);
@@ -160,7 +239,7 @@
 }
 
 .home_statement_title_sub{
-    margin-top: 2.3rem;
+    margin-top: 1rem;
     width: 71.3rem;
     text-align: right;
 

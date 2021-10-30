@@ -23,4 +23,9 @@ export default class SmoothScroll{
             }
         })
     }
+
+    update() {
+        this.scroll.update()
+        console.log('scroll updated')
+    }
 }

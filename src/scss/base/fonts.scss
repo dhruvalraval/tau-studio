@@ -18,6 +18,14 @@
   
 @font-face {
     font-family: $font-migra;
+    src: url('../../assets/fonts/Migra-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-migra;
     src: url('../../assets/fonts/MigraItalic-Italic_1.woff') format('woff');
     font-weight: 300;
     font-style: italic;

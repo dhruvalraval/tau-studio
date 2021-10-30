@@ -33,6 +33,14 @@
     font-size: 3.6rem;
   }
 }
+%title-98 {
+  font-family: $font-migra;
+  font-size: 9.8rem;
+
+  @include media('<phone') {
+    font-size: 3.6rem;
+  }
+}
 
 %title-100 {
   font-family: $font-neue-montreal;
