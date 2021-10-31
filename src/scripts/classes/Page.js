@@ -57,16 +57,10 @@ export default class Page {
         })
 
 		
-        // this.scroll = {
-			//     current: 0,
-			//     target: 0,
-			//     last: 0,
-			//     limit: 0
-			// }
-		console.log('id: ',this.id)	
-		this.createPreloadImages()
-		this.createAnimations()
-		this.cardAnimation()
+        console.log(this.elements)	
+        this.createPreloadImages()
+        this.createAnimations()
+        this.cardAnimation()
     }
 
     createPreloadImages() {

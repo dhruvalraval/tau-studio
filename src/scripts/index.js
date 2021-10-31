@@ -64,7 +64,7 @@ class App {
 
     startBarba() {
         barba.hooks.after(() => {
-            this.scroll.update();
+            this.scroll.update()
             this.update(this.scroll)
         });
         
@@ -91,11 +91,14 @@ class App {
                     async leave ({ current }) {
                         // const done = this.async();
                         await fadeOut({container: current.container, color: '#EBAD3C'})
-                        console.log('leaving')
                     
                     },
                     enter: ({ next }) => { 
-                        console.log('enterin')
+                        gsap.to(document.querySelector('nav'), {
+                            autoAlpha: 1,
+                            duration: 0.2,
+                            ease: 'Power2.easeOut'
+                        })
                         fadeIn({container: next.container})
                         this.onChange(next.namespace)
                         this.scroll.setScroll(0,0);
@@ -131,11 +134,14 @@ class App {
                     },
                     async leave ({ current }) {
                         await fadeOut({container: current.container, color: '#254F36'})
-                        console.log('leaving')
                     
                     },
                     enter: ({ next }) => { 
-                        console.log('enterin')
+                        gsap.to(document.querySelector('nav'), {
+                            autoAlpha: 1,
+                            duration: 0.2,
+                            ease: 'Power2.easeOut'
+                        })
                         fadeIn({container: next.container})
                         this.onChange(next.namespace)
                         this.scroll.setScroll(0,0);
@@ -175,6 +181,11 @@ class App {
                     
                     },
                     enter: ({ next }) => { 
+                        gsap.to(document.querySelector('nav'), {
+                            autoAlpha: 1,
+                            duration: 0.2,
+                            ease: 'Power2.easeOut'
+                        })
                         console.log('enterin')
                         fadeIn({container: next.container})
                         this.onChange(next.namespace)
@@ -220,7 +231,7 @@ class App {
                     async leave ({ current }) {
                         const animationLeave = gsap.timeline()
                         gsap.to(document.querySelector('nav'), {
-                            autoAlpha: 1,
+                            autoAlpha: 0,
                             duration: 0.2,
                             ease: 'Power2.easeOut'
                         })
@@ -437,11 +448,23 @@ class App {
     }
 
     onChange(template) {
-        // this.content.setAttribute('data-template', this.template )
-        
+        ////////////////////////////////////////////////////////////////
+        // SEARCH FOR RUN CUSTOM CODE BARBA VIEWS
+        ///////////////////////////////////////////////////////////////
+        this.pages = {
+            about: new About(),
+            services: new Services(),
+            work: new Work(),
+            home: new Home(),
+            cruelove: new CrueLove(),
+            latereservation: new LateReservation(),
+            pzac: new PZAC(),
+            baucees: new Baucees()
+        }
+
         this.page = this.pages[template]
-        
         this.page.create()
+
         this.canvas.onChange(template)
         this.navigation.onChange(template)
     
@@ -449,7 +472,6 @@ class App {
         this.page.show()
         
         this.onResize()
-        
         this.addLinkListeners()
     }
     
@@ -467,16 +489,24 @@ class App {
     }
 
     onWheel (event) {
-        if(this.navanimation && this.navanimation.onWheel) {
-            this.navanimation.onWheel(event)
-        }
+
 
     }
 
-    update() {
+    onMouseMove( e ) {
+        if(this.canvas && this.canvas.onMouseMove) {
+            this.canvas.onMouseMove(e)
+        }
+    }
+
+    update(a) {
         if(this.scroll){
             this.scroll.on('scroll', ({ scroll }) => { 
                 this.y = scroll.y 
+                this.scrollEvent = scroll
+                if(this.navanimation && this.navanimation.onWheel) {
+                    this.navanimation.onWheel(this.scrollEvent)
+                }
             })
         }
 
@@ -486,7 +516,7 @@ class App {
         }
     
         if(this.canvas && this.canvas.update) {
-            this.canvas.update(this.y)
+            this.canvas.update(this.y, a)
         }
         this.frame = window.requestAnimationFrame(this.update.bind(this))
     }
@@ -497,6 +527,7 @@ class App {
 
     addEventListeners() {
         window.addEventListener('wheel', this.onWheel.bind(this))
+        window.addEventListener( 'mousemove', this.onMouseMove.bind(this))
         window.addEventListener('scroll', _ => {
             // if(this.pages.home && this.pages.home.onWheel) {
             //     this.pages.home.onScroll(e)

@@ -63,6 +63,7 @@
     "locomotive-scroll": "^4.1.2",
     "lodash": "^4.17.21",
     "lottie-web": "^5.7.14",
+    "noisejs": "^2.1.0",
     "normalize-wheel": "^1.0.1",
     "prefix": "^1.0.0",
     "simplex-noise": "^3.0.0",

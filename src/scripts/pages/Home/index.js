@@ -7,6 +7,11 @@ export default class Home extends Page {
         super({
             id: 'home',
             element: '.home',
+            elements: [
+                '.home_services_astrick',
+                '.home_project_title',
+                '.home_portfolio_work_link'
+            ]
         })
 
         this.astrick = document.querySelector('.home_services_astrick')
