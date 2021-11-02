@@ -582,9 +582,12 @@ class App {
 
         this.backToTop = document.querySelector('.home_footer_top_link')
         const target = document.querySelector('#top')
-        this.backToTop.addEventListener('click', (e) => {
-            this.scroll.scrollTo(target)
-        })
+        if(this.backToTop){
+            this.backToTop.addEventListener('click', (e) => {
+                this.scroll.scrollTo(target)
+            })
+        }
+        
     }
 
 
