@@ -9,8 +9,6 @@ export default class NavAnimation {
         this.c = 0
 
         this.limit = this.nav - window.innerHeight
-
-        window.addEventListener('scroll', (e) => console.log(e))
     }
 
     onWheel(scroll){

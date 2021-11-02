@@ -16,3 +16,13 @@ Start the local server
 ```
 
 Server at: ``` localhost:8080 ```
+
+## Run Dist folder
+
+```bash
+    npm install -g http-server
+```
+
+```bash
+    http-server . -p 8080
+```

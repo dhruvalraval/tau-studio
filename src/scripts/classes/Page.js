@@ -56,8 +56,7 @@ export default class Page {
               }
         })
 
-		
-        console.log(this.elements)	
+
         this.createPreloadImages()
         this.createAnimations()
         this.cardAnimation()
@@ -142,10 +141,19 @@ export default class Page {
     
 	cardAnimation() {
 		this.button = document.querySelector('.work_card_button')
-        this.card = document.querySelector('.work_card')
-        this.para = document.querySelector('.work_card_paragraph')
-        this.service = document.querySelector('.work_card_service')
-        this.serPara = document.querySelector('.work_card_service_paragraph')
+		this.card = document.querySelector('.work_card')
+		this.para = document.querySelector('.work_card_paragraph')
+		this.service = document.querySelector('.work_card_service')
+		this.serPara = document.querySelector('.work_card_service_paragraph')
+
+      	
+		this.close = document.querySelector('.work_close')
+		if(this.close){
+
+			this.close.addEventListener('click', (e) => {
+				window.location.pathname ='/work.html'
+			})
+		}
 
 		if(this.button) {
 			
@@ -208,42 +216,14 @@ export default class Page {
 
         each(this.animations, animation => animation.onResize())
     }
-    
-    // onWheel ({ pixelY }) {
-    //     this.scroll.target += pixelY
-    // }
 
-    // onTouchDown ({ y }) {
-    //     this.scroll.last = this.scroll.target
-    // }
-
-    // onTouchMove ({ y }) {
-    //     const distance = y.start - y.end
-    //     this.scroll.target = this.scroll.last - distance
-    //     console.log(this.scroll.target)
-
-    // }
-    // onTouchUp ({y}) {
-    //     // this.scroll.target = this.y.end
-    // }
 
 
     /**
      * LOOP
      */
     update () {
-        // this.scroll.target = gsap.utils.clamp(0, this.scroll.limit, this.scroll.target)
-
-        // this.scroll.current = gsap.utils.interpolate(this.scroll.current, this.scroll.target, 0.08 )
-
-        // if(this.element) {
-        //     this.element.style[this.prefixTransform] = `translateY(-${this.scroll.current}px)`
-            
-        // }
-
-        // if(this.scroll.current < 0.01) {
-        //     this.scroll.current = 0
-        // }
+      //update-loop if any
     }
     /**
      * LISTENER

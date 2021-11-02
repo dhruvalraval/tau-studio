@@ -5,9 +5,10 @@ export default class About extends Page {
         super({
             id: 'about',
             element: '.about',
+            elements: [
+                '.home_video_section_element_back'
+            ]
         })
-        
-        console.log('about-page')
     }
 }
 

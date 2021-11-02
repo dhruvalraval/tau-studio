@@ -42,7 +42,7 @@
 .home_brand_statement_title{
     line-height: 1;
     
-    margin: -2rem  0;
+    margin: -5rem  0;
     &:nth-child(3){
         transform: translateY(-5rem);
 
@@ -53,9 +53,9 @@
 
     @include media('<phone') {
         line-height: 1.1;
-
+        margin: -2rem  0;
         &:nth-child(3){
-            transform: translateY(-0.4rem);
+            transform: translateY(-1rem);
             height: 5rem;
 
         }

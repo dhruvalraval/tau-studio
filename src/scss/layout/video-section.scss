@@ -104,20 +104,11 @@ span.home_video_section_details_bold{
     position: relative;
     width: 175rem;
 
+    border-radius: 8.4rem;
+
     @include media('<phone') {
+        border-radius: 1.2rem;
         width: 100%;
-    }
-}
-
-.home_video_section_element_logos{
-    width: 121.8rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    @include media('<phone') {
-        width: 80%;
     }
 }
 

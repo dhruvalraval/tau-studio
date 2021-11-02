@@ -65,6 +65,7 @@
     "lottie-web": "^5.7.14",
     "noisejs": "^2.1.0",
     "normalize-wheel": "^1.0.1",
+    "postprocessing": "^6.23.2",
     "prefix": "^1.0.0",
     "simplex-noise": "^3.0.0",
     "stickybits": "^3.7.9",

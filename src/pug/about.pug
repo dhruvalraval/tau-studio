@@ -4,7 +4,7 @@ block variables
   -var template = 'about'
 
 block content
-    .about(data-scroll-section data-background="#F3EFE4" data-color="#000000")
+    .about#top(data-scroll-section data-background="#F3EFE4" data-color="#000000")
         .about_hero#about_top
             .about_hero_wrapper
                 h1.about_hero_main_title(data-animation="title") CREATIVE AGENCY BASED IN NEW YORK CITY
@@ -13,7 +13,7 @@ block content
                     p.about_hero_details_text TAU is a branding & performance marketing agency which provides a wide variety of advertising work while keeping an eye on brand building - ranging from research/planning and conceptual development to design. 
                     p.about_hero_details_text Our team is built of visual storytellers & strategically data-driven minds, working with existing brands & launching new ideas to the world.
                     p.about_hero_details_text We are founded in the belief that brands with a desire to have a clear and compelling voice in their industries are the brands that make themselves heard. Getting to the core of your vision, goals, and assessing the market - we create a strategy to amplify your brand’s voice and position you not only for the present, but with the future in mind
-                h1.about_hero_last_title(data-animation="title") WE DESIGN BRANDS & TELL STORIES 
+                h1.about_hero_last_title(data-animation="title") WE DESIGN BRANDS & TELL STORIES. 
         .about_brand_wrapper
                     .about_brand_values_details
                         h1.about_brand_statement_title(data-animation="title") We look
@@ -46,8 +46,7 @@ block content
                         span.home_video_section_details_para_migra Kiehls, The Body Shop, People Magazine, & more
                     
                 .home_video_section_element
-                    img.home_video_section_element_back(src="../assets/img/image22.png")
-                    img.home_video_section_element_logos(src="../assets/img/logos.png")
+                    video.home_video_section_element_back(src="../assets/img/meltycone.mp4" type="video/mp4" autoplay muted loop)
                 .home_video_section_footer
                     h1.home_video_section_footer_title(data-animation="title") meltycone.com
                     .home_video_section_footer_link_list
@@ -55,33 +54,33 @@ block content
                         a.home_video_section_footer_links(href="") IN
                         a.home_video_section_footer_links_img_link(href="") 
                             img.home_video_section_footer_links_img(alt="arrow link to meltycone" src="../assets/img/arrow.png")
-        .home_contact_form
-            .home_contact_wrapper
-                .home_contact_form_details
-                    .home_contact_form_details_wrapper
-                        .home_contact_form_details_title_wrapper
-                            h1.home_contact_form_details_title(data-animation="title") CONTACT US
-                            h1.home_contact_form_details_title_mobile(data-animation="title") CONTACT
-                            h4.home_contact_form_details_sub KEEP IN TOUCH
-                        .home_contact_form_details_links_wrapper
-                            a.home_contact_form_details_links(href="") IN
-                            a.home_contact_form_details_links(href="") IG
-                            a.home_contact_form_details_links(href="") BE
-                    p.home_contact_form_details_para We craft brands that are authentic, differentiated, and poised for global growth.
-                .home_contact_form_wrapper
-                    form.contact_form(action= "", method= "post")
-                        .contact_form_field_row
-                            input.contact_form_field(type="text", name="name" value="[Your name]" autocomplete="off")
-                            //- span.contact_form_name [Your name]
-                        .contact_form_field_row
-                            input.contact_form_field(type="email", name="email", value="[Your email]" autocomplete="off")
-                            //- span.contact_form_name [Your email]
-                        input.contact_form_submit_button(type="image", src="../assets/img/arrow.png", alt="submit_button", name="submit")
-            .home_footer
-                .home_footer_timestamp
-                    img.home_footer_timestamp_img(src="../assets/img/world.png", alt="world_image")
-                    h1.home_footer_timestamp_city(data-animation="title") New York
-                    h1.home_footer_timestamp_time(data-animation="title") [12:00]
-                .home_footer_top
-                    a.home_footer_top_link Back To Top            
+        .home_contact_form(data-scroll)
+                .home_contact_wrapper
+                    .home_contact_form_details
+                            .home_contact_form_details_title_wrapper
+                                h1.home_contact_form_details_title(data-animation="title") CONTACT US
+                                h1.home_contact_form_details_title_mobile(data-animation="title") CONTACT
+                                h4.home_contact_form_details_sub KEEP IN TOUCH
+                    .home_contact_form_wrapper
+                        .home_contact_form_details_wrapper
+                            .home_contact_form_details_links_wrapper
+                                a.home_contact_form_details_links(href="") IN
+                                a.home_contact_form_details_links(href="") IG
+                                a.home_contact_form_details_links(href="") BE
+                            p.home_contact_form_details_para(data-animation="service-para") We craft brands that are authentic, differentiated, and poised for global growth.
+                        form.contact_form(action= "", method= "post")
+                            .contact_form_field_row
+                                input.contact_form_field(type="text", name="name" value="" autocomplete="off")
+                                span.contact_form_name(data-animation="paragraphs") [Your name]
+                            .contact_form_field_row
+                                input.contact_form_field(type="email", name="email", value="" autocomplete="off")
+                                span.contact_form_name(data-animation="paragraphs") [Your email]
+                            input.contact_form_submit_button(type="image", src="../assets/img/arrow.png", alt="submit_button", name="submit")
+                .home_footer
+                    .home_footer_timestamp
+                        img.home_footer_timestamp_img(src="../assets/img/world.png", alt="world_image")
+                        h1.home_footer_timestamp_city(data-animation="title") New York
+                        h1.home_footer_timestamp_time(data-animation="title") [12:00]
+                    .home_footer_top
+                        a.home_footer_top_link(data-animation="title") Back To Top  
             

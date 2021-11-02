@@ -11,7 +11,7 @@
     gap: 13rem;
 
     @include media('<phone') {
-        padding: 20rem 2.4rem 0;
+        padding: 35rem 2.4rem 0;
         grid-template-rows: 70% 20%;
         gap: 1rem;
     }
@@ -47,9 +47,30 @@
 .work_links_list{
     @extend %title-96;
 
+    text-decoration: none;
+    transition: 0.5s all ease;
+    overflow: hidden;
+    position: relative;
+
     @include media('<phone') {
         font-size: 4.8rem;
         word-wrap: break-word;
+    }
+
+    &:after{
+        content: '';
+        background-color: $color-black;
+        width: 100%;
+        height: 0.6rem;
+        top: 80%;
+        left: -100%;
+        position: absolute;
+        opacity: 1;
+        transition: 0.5s all ease;
+    }
+
+    &:hover:after{
+        left: 0%;
     }
 }   
 

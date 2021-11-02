@@ -14,20 +14,15 @@
 }
 .home_work_titles{
     align-self: flex-start;
-    padding: 3rem 8.3rem;
+    padding: 0.4rem 8.3rem;
     width: 100%;
     z-index: 99999999;
     background-color: $color-ecru-white;
     user-select: none;
 
-    border-bottom-right-radius: 15rem;
-    border-bottom-left-radius: 15rem;
-
     @include media('<phone') {
         width: 100%;
-        padding: 1.2rem 2.8rem;
-        border-bottom-right-radius: 5rem;
-        border-bottom-left-radius: 5rem;
+        padding: 0.2rem 2.8rem;
     }
 }
 

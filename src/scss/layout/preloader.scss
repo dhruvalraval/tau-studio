@@ -55,7 +55,7 @@
 
 .preloader_text{
     font-family: $font-neue-montreal;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 300;
   
     @include media('<phone') {
@@ -70,7 +70,7 @@
 
 .preloader_loading_bar{
     user-select: none;
-    width: 100%;
+    width: 60%;
     height: 0.2rem;
     background: $color-ecru-white;
     position: relative;

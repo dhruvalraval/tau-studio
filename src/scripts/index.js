@@ -33,20 +33,23 @@ class App {
         this.preloaderSvg = document.querySelector('.preloader_svg')
         this.preloaderCircle = document.querySelector('.preloader_circle')
         this.container = document.querySelector('[data-scroll-container]')
+        this.colorSlider = document.querySelector('input[name="blobColor"]')
+        this.processingSlider = document.querySelector('input[name="blobProcess"]')
         
         this.createContent()
-        this.createCanvas()
         
         this.createNavigation()
         this.createPages()
         
         this.onPreloaded()
+        this.createCanvas()
 
         this.addEventListeners()
         
         this.onResize()
         
         // this.update()
+        this.calculateDate()
 
         
         
@@ -60,16 +63,53 @@ class App {
           end: 0
         }
 
+       
+
     }
 
     startBarba() {
         barba.hooks.after(() => {
             this.scroll.update()
             this.update(this.scroll)
+            if(document.querySelector('.home_video_section_element_back')){
+                document.querySelector('.home_video_section_element_back').play()
+            }
         });
         
         barba.init({
             debug: true,
+            views: [{
+                namespace: 'home',
+                beforeEnter() {
+                    this.rotation = 0
+                    this.astrick = document.querySelector('.home_services_astrick')
+                    window.addEventListener('wheel', (e)=>{
+                        if(this.astrick){
+                            this.rotation += e.deltaY/10
+                            this.astrick.style.transform = `rotate(${this.rotation}deg)`
+                        }
+                    })
+                    this.colorSlider = document.querySelector('input[name="blobColor"]')
+                    this.processingSlider = document.querySelector('input[name="blobProcess"]')
+
+                    this.backToTop = document.querySelector('.home_footer_top_link')
+                    const target = document.querySelector('#top')
+                    this.backToTop.addEventListener('click', (e) => {
+                        this.scroll.scrollTo(target)
+                    })
+                    document.querySelector('.home_video_section_element_back').play()
+                }
+            }, {
+                    namespace: 'about',
+                    beforeEnter() {
+                        this.backToTop = document.querySelector('.home_footer_top_link')
+                        const target = document.querySelector('#top')
+                        this.backToTop.addEventListener('click', (e) => {
+                            this.scroll.scrollTo(target)
+                        })
+                        document.querySelector('.home_video_section_element_back').play()
+                    }
+            }],
             transitions: [
                 {   
                     name: 'general-transition',
@@ -177,7 +217,6 @@ class App {
                     },
                     async leave ({ current }) {
                         await fadeOut({container: current.container, color: '#EBAD3C'})
-                        console.log('leaving')
                     
                     },
                     enter: ({ next }) => { 
@@ -186,7 +225,6 @@ class App {
                             duration: 0.2,
                             ease: 'Power2.easeOut'
                         })
-                        console.log('enterin')
                         fadeIn({container: next.container})
                         this.onChange(next.namespace)
                         this.scroll.setScroll(0,0);
@@ -260,7 +298,6 @@ class App {
                         this.scroll.setScroll(0,0);
                         this.scroll.update();
                         window.setTimeout(_ => {
-                            console.log('updating scroll')
                             this.scroll.update();
                         }, 500)
                     }
@@ -348,7 +385,7 @@ class App {
     
     createCanvas() {
         this.canvas = new Canvas({
-          template: this.template
+            template: this.template
         })
     }
 
@@ -444,7 +481,7 @@ class App {
         }
         
         this.page.show()
-        this.canvas.onPreloaded(this.template)
+        // this.canvas.onPreloaded(this.template)
     }
 
     onChange(template) {
@@ -474,7 +511,25 @@ class App {
         this.onResize()
         this.addLinkListeners()
     }
-    
+
+    formatDate(date) {
+        return date.getHours() + ':' + 
+          date.getMinutes();
+    }
+
+    calculateDate() {
+        const d = new Date(1489199400000);
+        const localOffset = d.getTimezoneOffset()
+        const ny = new Date(1489199400000 - ((localOffset + 300) * 60 * 1000))
+          
+        this.nyc = this.formatDate(ny) 
+        
+        const footerTime = document.querySelector('.home_footer_timestamp_time')
+        if(footerTime){
+            footerTime.textContent = `[${this.nyc}]`
+        }
+
+    }
 
     onResize () {
         requestAnimationFrame(_ => {
@@ -486,11 +541,6 @@ class App {
         if(this.page && this.page.onResize) {
           this.page.onResize()
         }
-    }
-
-    onWheel (event) {
-
-
     }
 
     onMouseMove( e ) {
@@ -515,9 +565,9 @@ class App {
             this.page.update()
         }
     
-        if(this.canvas && this.canvas.update) {
-            this.canvas.update(this.y, a)
-        }
+        // if(this.canvas && this.canvas.update) {
+            this.canvas.update(this.y, this.processingSlider, this.colorSlider)
+        // }
         this.frame = window.requestAnimationFrame(this.update.bind(this))
     }
 
@@ -526,15 +576,15 @@ class App {
    */
 
     addEventListeners() {
-        window.addEventListener('wheel', this.onWheel.bind(this))
         window.addEventListener( 'mousemove', this.onMouseMove.bind(this))
-        window.addEventListener('scroll', _ => {
-            // if(this.pages.home && this.pages.home.onWheel) {
-            //     this.pages.home.onScroll(e)
-            // }
-        })
 
         window.addEventListener('resize', this.onResize.bind(this))
+
+        this.backToTop = document.querySelector('.home_footer_top_link')
+        const target = document.querySelector('#top')
+        this.backToTop.addEventListener('click', (e) => {
+            this.scroll.scrollTo(target)
+        })
     }
 
 

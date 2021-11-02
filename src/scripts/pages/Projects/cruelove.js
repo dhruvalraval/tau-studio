@@ -7,6 +7,6 @@ export default class CrueLove extends Page {
             id: 'cruelove',
             element: '.work_display',
         })
-    }
+    }   
 }
 

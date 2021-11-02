@@ -20,7 +20,6 @@ export default class Component extends EventEmitter{
     if (this.selector instanceof window.HTMLElement) {
       this.element =  this.selector
     } else {
-      console.log(this.selector)
       this.element = document.querySelector(this.selector)
     }
     this.elements = {}

@@ -4,7 +4,7 @@ block variables
   -var template = 'home'
 
 block content
-    .home(data-background="#F3EFE4" data-color="#000000" data-scroll-section)
+    .home#top(data-background="#F3EFE4" data-color="#000000" data-scroll-section)
         .home_wrapper
             .home_hero_element#home_top
                 .home_tau_logo
@@ -17,7 +17,7 @@ block content
             .home_statments
                 .home_true_love_element
                     .home_true_love_logo
-                    p.home_true_love_logo_alt_text CRUE LOVE LOGO
+                    p.home_true_love_logo_alt_text
                 .home_statement_title
                     h1.home_statement_title_main(data-animation="title") We connect
                     h1.home_statement_title_main_migra(data-animation="title") brands & consumers
@@ -230,8 +230,7 @@ block content
                         span.home_video_section_details_para_migra Kiehls, The Body Shop, People Magazine, & more
                     p.home_video_section_details_para_mobile At Tau, we focus on getting to the core of your aspirations and goals. We develop a concise strategy to amplify your brand’s digital identity for the present & future.
                 .home_video_section_element
-                    img.home_video_section_element_back(src="../assets/img/image22.png")
-                    img.home_video_section_element_logos(src="../assets/img/logos.png")
+                    video.home_video_section_element_back(src="../assets/img/meltycone.mp4" type="video/mp4" autoplay muted loop)
                 .home_video_section_footer
                     h1.home_video_section_footer_title(data-animation="title") meltycone.com
                     .home_video_section_footer_link_list
@@ -242,17 +241,17 @@ block content
             .home_contact_form(data-scroll)
                 .home_contact_wrapper
                     .home_contact_form_details
-                        .home_contact_form_details_wrapper
                             .home_contact_form_details_title_wrapper
                                 h1.home_contact_form_details_title(data-animation="title") CONTACT US
                                 h1.home_contact_form_details_title_mobile(data-animation="title") CONTACT
                                 h4.home_contact_form_details_sub KEEP IN TOUCH
+                    .home_contact_form_wrapper
+                        .home_contact_form_details_wrapper
                             .home_contact_form_details_links_wrapper
                                 a.home_contact_form_details_links(href="") IN
                                 a.home_contact_form_details_links(href="") IG
                                 a.home_contact_form_details_links(href="") BE
-                        p.home_contact_form_details_para(data-animation="service-para") We craft brands that are authentic, differentiated, and poised for global growth.
-                    .home_contact_form_wrapper
+                            p.home_contact_form_details_para(data-animation="service-para") We craft brands that are authentic, differentiated, and poised for global growth.
                         form.contact_form(action= "", method= "post")
                             .contact_form_field_row
                                 input.contact_form_field(type="text", name="name" value="" autocomplete="off")

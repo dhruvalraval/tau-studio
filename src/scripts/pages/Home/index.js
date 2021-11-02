@@ -10,7 +10,10 @@ export default class Home extends Page {
             elements: [
                 '.home_services_astrick',
                 '.home_project_title',
-                '.home_portfolio_work_link'
+                '.home_portfolio_work_link',
+                '.slider_color',
+                '.slider_process',
+                '.home_video_section_element_back'
             ]
         })
 
