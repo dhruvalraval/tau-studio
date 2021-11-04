@@ -144,7 +144,7 @@ export default class Page {
 		this.card = document.querySelector('.work_card')
 		this.para = document.querySelector('.work_card_paragraph')
 		this.service = document.querySelector('.work_card_service')
-		this.serPara = document.querySelector('.work_card_service_paragraph')
+		this.serPara = document.querySelector('.work_card_services_paragraph')
 
       	
 		this.close = document.querySelector('.work_close')
@@ -158,42 +158,47 @@ export default class Page {
 		if(this.button) {
 			
 			this.button.addEventListener('click', _ => {
+
 				this.button.classList.toggle('closed')
 				this.card.classList.toggle('shrink')
+
+        const timeline = gsap.timeline({
+          duration: 0.2,
+          ease: 'Power2.easeOut'
+        })
+
 				if(this.card.classList.contains('shrink') && this.button.classList.contains('closed')){
-					gsap.to(this.para, {
+
+					timeline.to(this.para, {
 						autoAlpha: 0,
 						duration: 0.2, 
 						ease: 'Power2.easeOut'
 					})
-					gsap.to(this.service, {
+					timeline.to(this.service, {
 						autoAlpha: 0,
 						duration: 0.2, 
 						ease: 'Power2.easeOut'
 					})
-					gsap.to(this.serPara, {
+					timeline.to(this.serPara, {
 						autoAlpha: 0,
 						duration: 0.2, 
 						ease: 'Power2.easeOut'
 					})
 				} else {
-					gsap.to(this.para, {
-						autoAlpha: 1,
-						duration: 0.4, 
-						delay: 0.2,
-						ease: 'Power2.easeIn'
-					})
-					gsap.to(this.service, {
+					timeline.to(this.para, {
 						autoAlpha: 1,
 						duration: 0.2, 
-						delay: 0.2,
-						ease: 'Power2.easeIn'
+						ease: 'Power2.easeOut'
 					})
-					gsap.to(this.serPara, {
+					timeline.to(this.service, {
 						autoAlpha: 1,
 						duration: 0.2, 
-						delay: 0.2,
-						ease: 'Power2.easeIn'
+						ease: 'Power2.easeOut'
+					})
+					timeline.to(this.serPara, {
+						autoAlpha: 1,
+						duration: 0.2, 
+						ease: 'Power2.easeOut'
 					})
 				}
 				

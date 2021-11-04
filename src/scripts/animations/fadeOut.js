@@ -16,7 +16,7 @@ const fadeOut = async ({container, color}) => {
         autoAlpha: 0,
         delay: 0.8
     });
-    const transition = await GeneralTransition({container, color})
+    // const transition = await GeneralTransition({container, color})
     // transition.restart()
 
 }

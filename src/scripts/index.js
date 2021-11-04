@@ -2,6 +2,7 @@ import imagesLoaded from 'imagesloaded'
 import gsap from 'gsap'
 import LocomotiveScroll from 'locomotive-scroll'
 import { each } from 'lodash'
+import { DateTime } from 'luxon'
 
 import barba from '@barba/core'
 
@@ -36,6 +37,10 @@ class App {
         this.colorSlider = document.querySelector('input[name="blobColor"]')
         this.processingSlider = document.querySelector('input[name="blobProcess"]')
         
+        this.dt = DateTime.now().setZone("America/New_York")
+        this.nycHour = this.dt.hour
+        this.nycMin = this.dt.minute
+        
         this.createContent()
         
         this.createNavigation()
@@ -63,9 +68,8 @@ class App {
           end: 0
         }
 
-       
-
-    }
+        
+    }   
 
     startBarba() {
         barba.hooks.after(() => {
@@ -74,42 +78,54 @@ class App {
             if(document.querySelector('.home_video_section_element_back')){
                 document.querySelector('.home_video_section_element_back').play()
             }
+            this.backToTop = document.querySelector('.home_footer_top_link')
+            const target = document.querySelector('#top')
+            
+            this.backToTop.addEventListener('click', (e) => {
+                    this.scroll.scrollTo(target)
+            })
+
+            this.dt = DateTime.now().setZone("America/New_York")
+            this.nycHour = this.dt.hour
+            this.nycMin = this.dt.minute
+            const footerTime = document.querySelector('.home_footer_timestamp_time')
+            if(footerTime){
+                footerTime.textContent = `[${this.nycHour}:${this.nycMin}]`
+            }
+
+            this.textfield = document.querySelectorAll('#textfield')
+            this.emailfield = document.querySelectorAll('#emailfield')
+    
+            this.textSpan = document.querySelectorAll('.contact_form_name_text')
+            this.emailSpan = document.querySelectorAll('.contact_form_name_email')
+    
+            if(this.template === 'home' || this.template === 'about'){
+    
+                this.textfield.forEach(text => {
+                    text.addEventListener('click', _ => {
+                        gsap.to('.contact_form_name_text', {
+                            autoAlpha: 0,
+                            duration: 0.2, 
+                            ease: 'Power2.easeOut'
+                        })
+                    })
+                })
+                
+                this.emailfield.forEach(email => {
+
+                    email.addEventListener('click', _ => {
+                        gsap.to(this.emailSpan, {
+                            autoAlpha: 0,
+                            duration: 0.2, 
+                            ease: 'Power2.easeOut'
+                        })
+                    })
+                })
+            }
+
         });
         
         barba.init({
-            debug: true,
-            views: [{
-                namespace: 'home',
-                beforeEnter() {
-                    this.rotation = 0
-                    this.astrick = document.querySelector('.home_services_astrick')
-                    window.addEventListener('wheel', (e)=>{
-                        if(this.astrick){
-                            this.rotation += e.deltaY/10
-                            this.astrick.style.transform = `rotate(${this.rotation}deg)`
-                        }
-                    })
-                    this.colorSlider = document.querySelector('input[name="blobColor"]')
-                    this.processingSlider = document.querySelector('input[name="blobProcess"]')
-
-                    this.backToTop = document.querySelector('.home_footer_top_link')
-                    const target = document.querySelector('#top')
-                    this.backToTop.addEventListener('click', (e) => {
-                        this.scroll.scrollTo(target)
-                    })
-                    document.querySelector('.home_video_section_element_back').play()
-                }
-            }, {
-                    namespace: 'about',
-                    beforeEnter() {
-                        this.backToTop = document.querySelector('.home_footer_top_link')
-                        const target = document.querySelector('#top')
-                        this.backToTop.addEventListener('click', (e) => {
-                            this.scroll.scrollTo(target)
-                        })
-                        document.querySelector('.home_video_section_element_back').play()
-                    }
-            }],
             transitions: [
                 {   
                     name: 'general-transition',
@@ -346,7 +362,100 @@ class App {
                     }
                 },
 
-            ]
+            ],
+            views: [{
+                namespace: 'home',
+                beforeEnter() {
+                    this.rotation = 0
+                    this.astrick = document.querySelector('.home_services_astrick')
+                    window.addEventListener('wheel', (e)=>{
+                        if(this.astrick){
+                            this.rotation += e.deltaY/10
+                            this.astrick.style.transform = `rotate(${this.rotation}deg)`
+                        }
+                    })
+                    this.colorSlider = document.querySelector('input[name="blobColor"]')
+                    this.processingSlider = document.querySelector('input[name="blobProcess"]')
+
+   
+                    document.querySelector('.home_video_section_element_back').play()
+
+                    this.dt = DateTime.now().setZone("America/New_York")
+                    this.nycHour = this.dt.hour
+                    this.nycMin = this.dt.minute
+                    const footerTime = document.querySelector('.home_footer_timestamp_time')
+                    footerTime.textContent = `[${this.nycHour}:${this.nycMin}]`
+                },
+                afterEnter() {
+                    this.textfield = document.querySelector('#textfield')
+                    this.emailfield = document.querySelector('#emailfield')
+            
+                    this.textSpan = document.querySelector('.contact_form_name_text')
+                    this.emailSpan = document.querySelector('.contact_form_name_email')
+            
+                    this.textfield.addEventListener('click', _ => {
+                        gsap.to(this.textSpan, {
+                            autoAlpha: 0,
+                            duration: 0.2, 
+                            ease: 'Power2.easeOut'
+                        })
+                    })
+                    
+                    this.emailfield.addEventListener('click', _ => {
+                        gsap.to(this.emailSpan, {
+                            autoAlpha: 0,
+                            duration: 0.2, 
+                            ease: 'Power2.easeOut'
+                        })
+                    })
+                }
+            }, {
+                    namespace: 'about',
+                    beforeEnter() {
+                        this.backToTop = document.querySelector('.home_footer_top_link')
+                        const target = document.querySelector('#top')
+                        this.backToTop.addEventListener('click', (e) => {
+                            this.scroll.scrollTo(target)
+                        })
+                        document.querySelector('.home_video_section_element_back').play()
+
+                        this.dt = DateTime.now().setZone("America/New_York")
+                        this.nycHour = this.dt.hour
+                        this.nycMin = this.dt.minute
+                        const footerTime = document.querySelector('.home_footer_timestamp_time')
+                        footerTime.textContent = `[${this.nycHour}:${this.nycMin}]`
+                        
+                    },
+                    afterEnter() {
+                        this.textfield = document.querySelector('#textfield')
+                        this.emailfield = document.querySelector('#emailfield')
+                
+                        this.textSpan = document.querySelector('.contact_form_name_text')
+                        this.emailSpan = document.querySelector('.contact_form_name_email')
+                
+                        this.textfield.addEventListener('click', _ => {
+                            gsap.to(this.textSpan, {
+                                autoAlpha: 0,
+                                duration: 0.2, 
+                                ease: 'Power2.easeOut'
+                            })
+                        })
+                        
+                        this.emailfield.addEventListener('click', _ => {
+                            gsap.to(this.emailSpan, {
+                                autoAlpha: 0,
+                                duration: 0.2, 
+                                ease: 'Power2.easeOut'
+                            })
+                        })
+                    }
+            },  {
+                namespace: 'cruelove',
+                afterEnter() {
+
+                    
+                }
+        }]
         });
     }
 
@@ -391,6 +500,7 @@ class App {
 
     navAnimation() {
         this.navanimation = new navigation()
+
     }
 
 
@@ -504,7 +614,8 @@ class App {
 
         this.canvas.onChange(template)
         this.navigation.onChange(template)
-    
+        
+        
         // this.scroll.update()
         this.page.show()
         
@@ -518,16 +629,10 @@ class App {
     }
 
     calculateDate() {
-        const d = new Date(1489199400000);
-        const localOffset = d.getTimezoneOffset()
-        const ny = new Date(1489199400000 - ((localOffset + 300) * 60 * 1000))
-          
-        this.nyc = this.formatDate(ny) 
-        
-        const footerTime = document.querySelector('.home_footer_timestamp_time')
-        if(footerTime){
-            footerTime.textContent = `[${this.nyc}]`
-        }
+        // const footerTime = document.querySelector('.home_footer_timestamp_time')
+        // if(footerTime){
+        //     footerTime.textContent = `[${this.nycHour}:${this.nycMin}]`
+        // }
 
     }
 
@@ -580,29 +685,46 @@ class App {
 
         window.addEventListener('resize', this.onResize.bind(this))
 
+
         this.backToTop = document.querySelector('.home_footer_top_link')
         const target = document.querySelector('#top')
-        if(this.backToTop){
+        if(this.backToTop) {
+
             this.backToTop.addEventListener('click', (e) => {
                 this.scroll.scrollTo(target)
             })
         }
-        
+
+        this.textfield = document.querySelector('#textfield')
+        this.emailfield = document.querySelector('#emailfield')
+
+        this.textSpan = document.querySelector('.contact_form_name_text')
+        this.emailSpan = document.querySelector('.contact_form_name_email')
+
+        if(this.template === 'home' || this.template === 'about'){
+
+            this.textfield.addEventListener('click', _ => {
+                gsap.to(this.textSpan, {
+                    autoAlpha: 0,
+                    duration: 0.2, 
+                    ease: 'Power2.easeOut'
+                })
+            })
+            
+            this.emailfield.addEventListener('click', _ => {
+                gsap.to(this.emailSpan, {
+                    autoAlpha: 0,
+                    duration: 0.2, 
+                    ease: 'Power2.easeOut'
+                })
+            })
+        }
     }
 
 
     addLinkListeners () {
         const home = document.querySelector('.navigation_link')
         const nav = document.querySelectorAll('.navigation_list_link')
-
-        // home.addEventListener('click', _ => {
-        //     this.onChange()
-        // })
-
-        // each(nav, (link) => {
-        //     link.addEventListener('click', _ => {
-        //     })
-        // })
     }
 }
 

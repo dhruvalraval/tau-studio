@@ -27,6 +27,12 @@ export default class Canvas {
 			}
 			this.mouse = new THREE.Vector2(0.8, 0.5)
 
+			if(this.processingSlider){
+				this.spikes = this.processingSlider.value
+			} else {
+				this.spikes = 0.7
+			}
+
 			this.simplex = new SimplexNoise()
 			this.createRenderer()
 			this.createScene()
@@ -82,13 +88,28 @@ export default class Canvas {
 		})
 
 		this.mesh2 = new THREE.Mesh(blobGeometry, blobMaterial2);
-		this.mesh2.position.set(0.8, -50, 0.6)
+		
 		this.scene.add(this.mesh2);
 
 
+
+
 		if(window.innerWidth < 750) {
-			this.mesh.position.set(0, -1.3, -2)
-			this.mesh2.position.set(0.4, -90, -0.3)
+			if(this.template === 'about') {
+				this.mesh2.position.set(0.8, -50, -2)
+			} else{
+				this.mesh.position.set(0, -0.8, -0.6)
+				this.mesh2.position.set(0.8, -50, -0.5)
+			}
+		} else {
+			if(this.template === 'work'){
+				this.mesh.material.color = new THREE.Color(0xD19FAF)
+			}
+			if(this.template === 'about') {
+				this.mesh2.position.set(0.8, -50, 0.6)
+			} else{
+				this.mesh2.position.set(0.8, -50, 0.6)
+			}
 		}
 
 	}
@@ -108,14 +129,14 @@ export default class Canvas {
 		this.scene.add(this.ambientLight)
 	}
 
-	setNewPoints( time ) {
+	setNewPoints( time, spikes ) {
 		
 		const basePositionAttribute = this.mesh.geometry.getAttribute("basePosition")
 		const positionAttribute = this.mesh.geometry.getAttribute( 'position' )
 		
 		const vertex = new THREE.Vector3()
 		let perlin
-		const spikes = 0.6
+
 		for ( let vertexIndex = 0; vertexIndex < positionAttribute.count; vertexIndex++ ) {
 
 			vertex.fromBufferAttribute( basePositionAttribute, vertexIndex )
@@ -199,6 +220,7 @@ export default class Canvas {
 		}
 
 		if( template === 'work') {
+			this.mesh.material.color = new THREE.Color(0xD19FAF)
 			gsap.set(this.mesh.material, {
 				opacity: 1,
 			})
@@ -270,19 +292,34 @@ export default class Canvas {
 	 */
 
 	update(scroll, pSlider, cSlider) {
-		let time = performance.now() * 0.00001 * 15
+		let time = performance.now() * 0.00005 * 15
 		if(window.innerWidth < 750){
-			if(scroll != 0 && scroll<0 ) {
-				this.mesh.position.y = -1.3
-				this.mesh2.position.y = -90
-			} else if(scroll > 0){
-				this.mesh.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003, 0.1 )
-				this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.005-90, 0.1 )
+			if(this.template === 'about') {
+				if(scroll != 0 && scroll<0 ) {
+					this.mesh.position.y = -1.3
+					this.mesh2.position.y = -50
+				} else if(scroll > 0){
+					this.mesh.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003, 0.1 )
+					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.1-120, 0.1 )
+				}
+				else if(scroll = 0){
+					this.mesh.position.y = -1.3
+					this.mesh2.position.y = -50
+				}
+			} else {
+				if(scroll != 0 && scroll<0 ) {
+					this.mesh.position.y = -1.3
+					this.mesh2.position.y = -90
+				} else if(scroll > 0){
+					this.mesh.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003, 0.1 )
+					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.005-90, 0.1 )
+				}
+				else if(scroll = 0){
+					this.mesh.position.y = -1.3
+					this.mesh2.position.y = -90
+				}
 			}
-			else if(scroll = 0){
-				this.mesh.position.y = -1.3
-				this.mesh2.position.y = -90
-			}
+
 		} else {
 			if(scroll != 0 && scroll<0 ) {
 				if(this.template === 'work'){
@@ -316,7 +353,9 @@ export default class Canvas {
 		}
 
 		if(this.processingSlider || pSlider) {
-			time = time * Math.pow(this.processingSlider.value, 3) ||  time * Math.pow(pSlider.value, 3)
+			// time = time * Math.pow(this.processingSlider.value, 3) ||  time * Math.pow(pSlider.value, 3)
+			const value = this.processingSlider.value || pSlider.value
+			this.spikes = value*0.7
 		}
 		if(this.colorSlider || cSlider){
 			if(this.template === 'work'){
@@ -325,7 +364,7 @@ export default class Canvas {
 				this.mesh.material.color = gsap.utils.interpolate(new THREE.Color(0xEBAD3C), new THREE.Color(0xD19FAF), this.colorSlider.value) || gsap.utils.interpolate(new THREE.Color(0xEBAD3C), new THREE.Color(0xD19FAF), cSlider.value)
 			}
 		}
-		this.setNewPoints( time)
+		this.setNewPoints( time, this.spikes)
 		this.renderer.render(this.scene, this.camera)
 		this.composer.render()
 	}

@@ -70,11 +70,11 @@ block content
                             p.home_contact_form_details_para(data-animation="service-para") We craft brands that are authentic, differentiated, and poised for global growth.
                         form.contact_form(action= "", method= "post")
                             .contact_form_field_row
-                                input.contact_form_field(type="text", name="name" value="" autocomplete="off")
-                                span.contact_form_name(data-animation="paragraphs") [Your name]
+                                input.contact_form_field#textfield(type="text", name="name" value="" autocomplete="off")
+                                span.contact_form_name.contact_form_name_text(data-animation="paragraphs") [Your name]
                             .contact_form_field_row
-                                input.contact_form_field(type="email", name="email", value="" autocomplete="off")
-                                span.contact_form_name(data-animation="paragraphs") [Your email]
+                                input.contact_form_field#emailfield(type="email", name="email", value="" autocomplete="off")
+                                span.contact_form_name.contact_form_name_email(data-animation="paragraphs") [Your email]
                             input.contact_form_submit_button(type="image", src="../assets/img/arrow.png", alt="submit_button", name="submit")
                 .home_footer
                     .home_footer_timestamp
