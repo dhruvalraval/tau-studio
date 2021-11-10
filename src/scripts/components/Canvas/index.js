@@ -52,7 +52,7 @@ export default class Canvas {
 		})
 		this.renderer.setSize(window.innerWidth, window.innerHeight)
 		this.renderer.setPixelRatio(window.devicePixelRatio || 1)
-
+		this.renderer.autoClear = true
 		document.body.appendChild(this.renderer.domElement)
 	}
 
@@ -117,12 +117,10 @@ export default class Canvas {
 	createLights() {
 		this.lightTop = new THREE.DirectionalLight(0xFFFFFF, .7)
 		this.lightTop.position.set(0, 500, 200)
-		this.lightTop.castShadow = true
 		this.scene.add(this.lightTop)
 	  
 		this.lightBottom = new THREE.DirectionalLight(0xFFFFFF, .25)
 		this.lightBottom.position.set(0, -500, 400)
-		this.lightBottom.castShadow = true
 		this.scene.add(this.lightBottom)
 	  
 		this.ambientLight = new THREE.AmbientLight(0x798296)
@@ -147,7 +145,7 @@ export default class Canvas {
 				vertex.z * spikes + time)
 			if(perlin){
 				
-				let ratio = perlin * 0.4 * ( this.mouse.y + (this.mouse.x * 0.5) + 0.1 ) + 0.8
+				let ratio = perlin * 0.4 * ( this.mouse.y + (this.mouse.x * 0.2) + 0.03 ) + 0.8
 				vertex.multiplyScalar( ratio )
 				positionAttribute.setXYZ(vertexIndex, vertex.x, vertex.y, vertex.z)
 			}
@@ -292,7 +290,7 @@ export default class Canvas {
 	 */
 
 	update(scroll, pSlider, cSlider) {
-		let time = performance.now() * 0.00005 * 15
+		let time = performance.now() * 0.00005 * 5
 		if(window.innerWidth < 750){
 			if(this.template === 'about') {
 				if(scroll != 0 && scroll<0 ) {
@@ -337,7 +335,7 @@ export default class Canvas {
 					this.mesh2.position.y = gsap.utils.interpolate(this.mesh2.position.y,scroll*0.003-6, 0.1 )
 				}  else {
 					this.mesh.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003, 0.1 )
-					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003 - 140, 0.1 )
+					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003 - 90, 0.1 )
 				}
 			}
 			else if(scroll<2){

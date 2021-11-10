@@ -55,7 +55,6 @@ class App {
         
         // this.update()
         this.calculateDate()
-
         
         
         this.navAnimation()
