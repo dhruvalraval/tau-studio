@@ -11,12 +11,12 @@
     z-index: z('preloader');
 }
 .preloader_wrapper{
-    margin-top: -10rem;
+    margin-top: 10rem;
     height: 50%;
     width: 40%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: repeat (3, 33% );
+    grid-template-rows: 12rem 8rem 8rem;
     place-items: center;
 
     @include media('<phone') {
@@ -25,8 +25,8 @@
 }
 
 .preloader_svg {
-    width: 15rem;
-    height: 15rem;
+    width: 10rem;
+    height: 10rem;
     transition: 0.5s all ease;
     animation: rotation 8s linear infinite;
 
@@ -55,7 +55,7 @@
 
 .preloader_text{
     font-family: $font-neue-montreal;
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 300;
   
     @include media('<phone') {
@@ -70,7 +70,7 @@
 
 .preloader_loading_bar{
     user-select: none;
-    width: 60%;
+    width: 40%;
     height: 0.2rem;
     background: $color-ecru-white;
     position: relative;
@@ -83,9 +83,9 @@
 
 .preloader_circle{
         background: $color-everglade;
-        height: 5rem;
-        width: 5rem;
-        border-radius: 5rem;
+        height: 3rem;
+        width: 3rem;
+        border-radius: 3rem;
         border: 2px solid $color-ecru-white;
         position: absolute;
         top: 0%;

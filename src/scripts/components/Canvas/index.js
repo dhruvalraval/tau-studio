@@ -335,7 +335,7 @@ export default class Canvas {
 					this.mesh2.position.y = gsap.utils.interpolate(this.mesh2.position.y,scroll*0.003-6, 0.1 )
 				}  else {
 					this.mesh.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003, 0.1 )
-					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003 - 90, 0.1 )
+					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003 - 110, 0.1 )
 				}
 			}
 			else if(scroll<2){

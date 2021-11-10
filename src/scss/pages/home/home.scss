@@ -45,7 +45,7 @@
     // position: absolute;
     // top: 43.3rem;
     // right: 9.1rem;
-    width: 40rem;
+    width: 51.6rem;
     text-align: right;
 
     @include media('<phone') {
@@ -65,7 +65,7 @@
     // position: absolute;
     // top: 67.1rem;
     // right: 9.1rem;
-    width: 35.2rem;
+    width: 28rem;
     height: 10rem;
     display: flex;
     flex-direction: column;
@@ -148,7 +148,7 @@
     // position: absolute;
     // top: 90.3rem;
     // right: 8.1rem;
-    width: 12.9rem;
+    width: 8rem;
 
     @include media('<phone') {
         display: none;
@@ -265,7 +265,7 @@
 }
 
 .home_statement_title_sub{
-    margin-top: 1rem;
+    margin-top: -2rem;
     width: 71.3rem;
     text-align: right;
 

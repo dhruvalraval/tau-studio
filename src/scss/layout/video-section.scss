@@ -63,6 +63,7 @@
     text-align: right;
     display: block;
     line-height: 1.25;
+    font-size: 4rem;
 
     @include media('<phone') {
         display: none;
