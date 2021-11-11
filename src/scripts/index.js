@@ -25,6 +25,8 @@ import CrueLove from './pages/Projects/cruelove'
 import LateReservation from './pages/Projects/latereservation'
 import PZAC from './pages/Projects/pzac'
 import Baucees from './pages/Projects/baucess'
+import Brio from './pages/Projects/brio'
+import Ivyhills from './pages/Projects/ivyhills'
 
 class App {
     constructor() {
@@ -251,7 +253,7 @@ class App {
 
                     to: {
                         namespace: [
-                            'cruelove', 'baucees', 'latereservation', 'pzac'
+                            'cruelove', 'baucees', 'latereservation', 'pzac', 'brio', 'ivyhills'
                         ]
                     },
                     once: ({ next }) => {
@@ -483,7 +485,9 @@ class App {
           cruelove: new CrueLove(),
           latereservation: new LateReservation(),
           pzac: new PZAC(),
-          baucees: new Baucees()
+          baucees: new Baucees(),
+          brio: new Brio(),
+          ivyhills: new Ivyhills()
         }
 
         
@@ -605,7 +609,9 @@ class App {
             cruelove: new CrueLove(),
             latereservation: new LateReservation(),
             pzac: new PZAC(),
-            baucees: new Baucees()
+            baucees: new Baucees(),
+            brio: new Brio(),
+            ivyhills: new Ivyhills()
         }
 
         this.page = this.pages[template]

@@ -1,7 +1,7 @@
 .work_display {
     position: relative;
     overflow: hidden;
-    z-index: 999999;
+    z-index: z('project');
     width: 100%;
     min-height: 100vh;
 }
@@ -189,7 +189,10 @@
         }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 81136e9 (after prod)
 
 .work_card_title {
     @extend %title-96;

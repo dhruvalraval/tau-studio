@@ -145,10 +145,15 @@
     align-self: end;
     justify-self: end;
     margin-bottom: -2rem;
+<<<<<<< HEAD
     // position: absolute;
     // top: 90.3rem;
     // right: 8.1rem;
     width: 8rem;
+=======
+    width: 8rem;
+
+>>>>>>> 81136e9 (after prod)
 
     @include media('<phone') {
         display: none;
@@ -235,7 +240,7 @@
 
     margin: -4rem  0;
     &:nth-child(3){
-        transform: translateY(-3rem);
+        transform: translateY(-2rem);
 
         span span {
             @extend %title-120;
