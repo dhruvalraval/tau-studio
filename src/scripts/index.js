@@ -136,7 +136,7 @@ class App {
                         this.scroll = new LocomotiveScroll({
                             el: this.container,
                             smooth: true,
-                            lerp: 0.08,
+                            lerp: 0.1,
                             smartphone: {
                                 smooth: true
                             },
@@ -180,7 +180,7 @@ class App {
                         this.scroll = new LocomotiveScroll({
                             el: this.container,
                             smooth: true,
-                            lerp: 0.08,
+                            lerp: 0.1,
                             smartphone: {
                                 smooth: true
                             },
@@ -223,7 +223,7 @@ class App {
                         this.scroll = new LocomotiveScroll({
                             el: this.container,
                             smooth: true,
-                            lerp: 0.08,
+                            lerp: 0.1,
                             smartphone: {
                                 smooth: true
                             },
@@ -262,7 +262,7 @@ class App {
                         this.scroll = new LocomotiveScroll({
                             el: this.container,
                             smooth: true,
-                            lerp: 0.08,
+                            lerp: 0.1,
                             smartphone: {
                                 smooth: true
                             },
@@ -337,7 +337,7 @@ class App {
                         this.scroll = new LocomotiveScroll({
                             el: this.container,
                             smooth: true,
-                            lerp: 0.08,
+                            lerp: 0.1,
                             smartphone: {
                                 smooth: true
                             },

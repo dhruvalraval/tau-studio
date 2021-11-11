@@ -125,6 +125,8 @@
     @include media('<phone') {
         border: 2px solid $color-black;
         border-radius: 4rem;
+        padding-top: 0;
+        font-size: 4.8rem;
         width: 10rem;
         height: 6rem;
         display: flex;
@@ -209,12 +211,15 @@
     position: absolute;
     pointer-events: none;
     transition: opacity 0.5s ease;
+
+    @include media('<phone') {
+        font-size: 4.8rem;
+    }
 }
 
 
 
-.contact_form_field[type="text"],
-.contact_form_field[type="email"]{
+.contact_form_field{
     @extend %title-120;
 
     background: none;
