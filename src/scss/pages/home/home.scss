@@ -145,15 +145,8 @@
     align-self: end;
     justify-self: end;
     margin-bottom: -2rem;
-<<<<<<< HEAD
-    // position: absolute;
-    // top: 90.3rem;
-    // right: 8.1rem;
-    width: 8rem;
-=======
     width: 8rem;
 
->>>>>>> 81136e9 (after prod)
 
     @include media('<phone') {
         display: none;
@@ -231,12 +224,6 @@
 .home_statement_title_main{
     @extend %title-120;
     line-height: 1;
-    // span{
-        // border: 1px solid black;
-    // }
-    // span span{
-        // border: 1px solid rgb(208, 0, 0);
-    // }
 
     margin: -4rem  0;
     &:nth-child(3){
