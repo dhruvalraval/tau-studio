@@ -598,9 +598,6 @@ class App {
     }
 
     onChange(template) {
-        ////////////////////////////////////////////////////////////////
-        // SEARCH FOR RUN CUSTOM CODE BARBA VIEWS
-        ///////////////////////////////////////////////////////////////
         this.pages = {
             about: new About(),
             services: new Services(),
@@ -621,7 +618,6 @@ class App {
         this.navigation.onChange(template)
         
         
-        // this.scroll.update()
         this.page.show()
         
         this.onResize()
@@ -634,10 +630,6 @@ class App {
     }
 
     calculateDate() {
-        // const footerTime = document.querySelector('.home_footer_timestamp_time')
-        // if(footerTime){
-        //     footerTime.textContent = `[${this.nycHour}:${this.nycMin}]`
-        // }
 
     }
 
