@@ -49,10 +49,6 @@
 .home_work_title{
     margin-left: 1rem;
     text-align: end;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 81136e9 (after prod)
 
     @include media('<phone') {
         margin-right: 0rem;
@@ -97,11 +93,8 @@
     grid-column: 3/-1;
     grid-row: 1/-1;
     opacity: 0;
-<<<<<<< HEAD
-=======
     font-size: 11rem;
     margin-top: 0.8rem;
->>>>>>> 81136e9 (after prod)
     transition: 0.4s opacity ease;
     margin-top: 0.8rem;
     line-height: 0px;
@@ -139,8 +132,6 @@
     }
 }
 
-<<<<<<< HEAD
-=======
 .home_portfolio_work_link{
     overflow: hidden;
     width: 100%;
@@ -152,7 +143,6 @@
         height: 30.3rem;
     }
 }
->>>>>>> 81136e9 (after prod)
 
 .home_portfolio_img{
     width: 99%;
@@ -162,12 +152,7 @@
 
     &:hover{
         border-radius: 5rem;
-<<<<<<< HEAD
-        transform: scale(1.1);
- 
-=======
         transform: scale(1.02);
->>>>>>> 81136e9 (after prod)
     }
 
     @include media('<phone') {
