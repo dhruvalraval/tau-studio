@@ -8,7 +8,7 @@ const fadeIn = ({container}) => {
     gsap.to(canvas, {
         duration: 0.2,
         autoAlpha: 1,
-        delay: 0.8
+        delay: 0.3
     });
 	return gsap.to(container, {
         duration: 0.4, 

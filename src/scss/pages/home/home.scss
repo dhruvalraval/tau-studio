@@ -22,9 +22,6 @@
 }
 
 .home_tau_logo{
-    // position: absolute;
-    // top: 50rem;
-    // left: 8.3rem;
     grid-column: 1/2;
     grid-row: 2/3;
     width: 100%;
@@ -42,9 +39,6 @@
     grid-row: 2/3;
     justify-self: end;
     align-self: start;
-    // position: absolute;
-    // top: 43.3rem;
-    // right: 9.1rem;
     width: 51.6rem;
     text-align: right;
 
@@ -62,9 +56,6 @@
     grid-row: 2/3;
     align-self: center;
     justify-self: end;
-    // position: absolute;
-    // top: 67.1rem;
-    // right: 9.1rem;
     width: 28rem;
     height: 10rem;
     display: flex;
@@ -115,6 +106,7 @@
     @include media('<phone') {
         width: 100%;
         height: 100%;
+        background: transparent;
 
         &::-webkit-slider-thumb{
             width: 1.5rem;
@@ -158,7 +150,7 @@
     width: 100%;
     height: 100vh;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 60% 40%;
     grid-template-rows: 100%;
     place-items: center;
     padding: 0 8.3rem;
@@ -179,7 +171,7 @@
     grid-template-columns: 100%;
     grid-template-rows: 100%;
     background-color: transparent;
-    place-items: center;
+    place-items: center start;
 
     @include media('<phone') {
         display: none;
@@ -188,7 +180,6 @@
 
 .home_true_love_logo{
     // margin-top: 2rem;
-    grid-row: 1/2;
     position: absolute;
     background-color: transparent;
     width: 45%;
@@ -211,9 +202,11 @@
 
 .home_statement_title{
     width: 88.9rem;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+    height: 25%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center end;
     justify-self: end;
 
     @include media('<phone') {
@@ -264,7 +257,7 @@
     @include media('<phone') {
         align-self: start;
         margin-top: 1rem;
-        width: 100%;
+        width: 80%;
     }
 }
 

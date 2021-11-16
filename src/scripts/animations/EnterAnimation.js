@@ -8,12 +8,9 @@ export default function EnterAnimation(preloader, preloaderText, container, colo
     const timeline = gsap.timeline()
 
     each(document.querySelectorAll('.preloader_text'),(text) => {
-        gsap.to(text, {
-            autoAlpha: 0,
-            duration: 0.2,
-            delay: 0.2,
-            ease: 'Power2.easeIn',
-        })
+        window.setTimeout(_ => {
+            text.classList.add('loaded')
+        }, 400)
     })
     gsap.to(document.querySelector('.preloader_svg'), {
         autoAlpha: 0,
@@ -44,6 +41,7 @@ export default function EnterAnimation(preloader, preloaderText, container, colo
         }
     })
 
+    
     // timeline.to(preloader, {
     //     autoAlpha: 0,
     //     duration: 0.8,

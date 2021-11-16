@@ -326,7 +326,7 @@ export default class Canvas {
 					this.mesh2.position.y = -30
 				} else {
 					this.mesh.position.y = -0.8
-					this.mesh2.position.y = -150
+					this.mesh2.position.y = -140
 				}
 			} else if(scroll > 0){
 				if(this.template === 'work'){
@@ -335,7 +335,7 @@ export default class Canvas {
 					this.mesh2.position.y = gsap.utils.interpolate(this.mesh2.position.y,scroll*0.003-6, 0.1 )
 				}  else {
 					this.mesh.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003, 0.1 )
-					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003 - 110, 0.1 )
+					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003 - 140, 0.1 )
 				}
 			}
 			else if(scroll<2){
@@ -345,7 +345,7 @@ export default class Canvas {
 					this.mesh2.position.y = -30
 				}  else {
 					this.mesh.position.y = gsap.utils.interpolate(this.mesh.position.y,-0.8, 0.05 )
-					this.mesh2.position.y = -150
+					this.mesh2.position.y = -140
 				}
 			}
 		}

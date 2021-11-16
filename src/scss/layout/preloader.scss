@@ -65,6 +65,11 @@
     opacity: 0;
     user-select: none;
     color: $color-ecru-white;
+    transition: 0.5s all ease-in-out;
+
+    &.loaded{
+        opacity: 1;
+    }
 }
 
 

@@ -11,7 +11,7 @@ export default class ServicePara extends Animation{
             element,
             elements
         })
-
+        this.element = element
         split({ element: this.element, append: true })
     
         this.elementLineSpans = this.element.querySelectorAll('span')
@@ -19,26 +19,31 @@ export default class ServicePara extends Animation{
 
     animateIn() {
         this.timeline = GSAP.timeline()
+        // if(this.elementLineSpans){
 
-        each(this.elementLineSpans, (lines, index) => {
-            this.timeline.fromTo(lines, {
-                autoAlpha: 0,
-            }, {
-                autoAlpha: 1,
-                delay: 0.5 + index * 0.1,
-                duration: 1.5,
-                ease: 'expo.out'
-            }, 0)
-          })
+            each(this.elementLineSpans, (lines, index) => {
+                this.timeline.fromTo(lines, {
+                    autoAlpha: 0,
+                }, {
+                    autoAlpha: 1,
+                    delay: 0.5 + index * 0.1,
+                    duration: 1.5,
+                    ease: 'expo.out'
+                }, 0)
+            })
+        // }
     }
 
     animateOut() {
-        GSAP.set(this.element, {
-            autoAlpha: 1
-          })
+        // if(this.element) {
+
+        //     GSAP.set(this.element, {
+        //         autoAlpha: 1
+        //     })
+        // }
     }
 
     onResize() {
-        this.elementLines = calculate(this.elementLineSpans)
+        
     }
 }

@@ -67,6 +67,10 @@
         position: absolute;
         opacity: 1;
         transition: 0.5s all ease;
+
+        @include media('<phone') {
+            height: 0.25rem;
+        }
     }
 
     &:hover:after{

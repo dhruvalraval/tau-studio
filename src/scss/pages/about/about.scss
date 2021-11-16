@@ -134,12 +134,12 @@
 .about_brand_wrapper{
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     margin-top: 5rem;
     padding: 0 8.3rem;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
 
     @include media('<phone') {
         margin-top: 0;
@@ -150,16 +150,18 @@
 
 .about_brand_values_details{
     margin-top: 25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
     width: 87.4rem;
     margin-right: 2rem;
+    height: 50%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center end;
 
     @include media('<phone') {
         margin-top: 15rem;
         width: 30rem;
-        height: 100%;
+        height: 35%;
         margin-right: 0rem;
     }
 }
@@ -170,7 +172,7 @@
 
     
     &:nth-child(3){
-        transform: translateY(-5.5rem);
+        transform: translateY(-4.5rem);
     }
 
     @include media('<phone') {
@@ -189,7 +191,7 @@
 }
 
 .about_brand_statement_para{
-    width: 77.3rem;
+    width: 57.3rem;
     text-align: right;
 
     @include media('<phone') {

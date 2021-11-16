@@ -152,7 +152,6 @@
 
     &:hover{
         border-radius: 5rem;
-        transform: scale(1.02);
     }
 
     @include media('<phone') {

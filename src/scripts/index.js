@@ -82,9 +82,19 @@ class App {
             this.backToTop = document.querySelector('.home_footer_top_link')
             const target = document.querySelector('#top')
             
-            this.backToTop.addEventListener('click', (e) => {
+            if(this.backToTop){
+                this.backToTop.addEventListener('click', (e) => {
                     this.scroll.scrollTo(target)
-            })
+                })
+            }
+
+            if(this.backToTopMobile){
+
+                this.backToTopMobile = document.querySelector('.home_footer_top_link_mobile')
+                this.backToTopMobile.addEventListener('click', (e) => {
+                    this.scroll.scrollTo(target)
+                })
+            }
 
             this.dt = DateTime.now().setZone("America/New_York")
             this.nycHour = this.dt.hour
@@ -94,39 +104,10 @@ class App {
                 footerTime.textContent = `[${this.nycHour}:${this.nycMin}]`
             }
 
-            this.textfield = document.querySelectorAll('#textfield')
-            this.emailfield = document.querySelectorAll('#emailfield')
-    
-            this.textSpan = document.querySelectorAll('.contact_form_name_text')
-            this.emailSpan = document.querySelectorAll('.contact_form_name_email')
-    
-            if(this.template === 'home' || this.template === 'about'){
-    
-                this.textfield.forEach(text => {
-                    text.addEventListener('click', _ => {
-                        gsap.to('.contact_form_name_text', {
-                            autoAlpha: 0,
-                            duration: 0.2, 
-                            ease: 'Power2.easeOut'
-                        })
-                    })
-                })
-                
-                this.emailfield.forEach(email => {
-
-                    email.addEventListener('click', _ => {
-                        gsap.to(this.emailSpan, {
-                            autoAlpha: 0,
-                            duration: 0.2, 
-                            ease: 'Power2.easeOut'
-                        })
-                    })
-                })
-            }
-
         });
         
         barba.init({
+            debug: true,
             transitions: [
                 {   
                     name: 'general-transition',
@@ -171,7 +152,7 @@ class App {
                     },
                     to: {
                         namespace: [
-                            'work', 'about', 'home'
+                            'home', 'work', 'about'
                         ]
                     },
                     once: ({ next }) => {
@@ -191,7 +172,6 @@ class App {
                     },
                     async leave ({ current }) {
                         await fadeOut({container: current.container, color: '#254F36'})
-                    
                     },
                     enter: ({ next }) => { 
                         gsap.to(document.querySelector('nav'), {
@@ -321,14 +301,9 @@ class App {
                 },
                 {   
                     name: 'work-cream-transition',
-                    from: {
-                        namespace: [
-                            'work', 'services'
-                        ]
-                    },
                     to: {
                         namespace: [
-                            'services', 'work'
+                            'work'
                         ]
                     },
                     once: ({ next }) => {
@@ -345,6 +320,29 @@ class App {
                                 smooth: true
                             }
                         })
+                    },
+                    async leave ({ current }) {
+                        await fadeOut({container: current.container, color: '#F3EFE4'})
+                    
+                    },
+                    enter: ({ next }) => { 
+                        fadeIn({container: next.container})
+                        gsap.to(document.querySelector('nav'), {
+                            autoAlpha: 1,
+                            duration: 0.2,
+                            ease: 'Power2.easeOut'
+                        })
+                        this.onChange(next.namespace)
+                        this.scroll.setScroll(0,0);
+                        this.scroll.update();
+                    }
+                },
+                {   
+                    name: 'about-transition',
+                    from: {
+                        namespace: [
+                            'about'
+                        ]
                     },
                     async leave ({ current }) {
                         await fadeOut({container: current.container, color: '#F3EFE4'})
@@ -388,25 +386,26 @@ class App {
                     footerTime.textContent = `[${this.nycHour}:${this.nycMin}]`
                 },
                 afterEnter() {
-                    this.textfield = document.querySelector('#textfield')
-                    this.emailfield = document.querySelector('#emailfield')
+                    this.projectTitles = document.querySelectorAll('.home_project_title')
+                    this.projects = document.querySelectorAll('.home_portfolio_work_link')
             
-                    this.textSpan = document.querySelector('.contact_form_name_text')
-                    this.emailSpan = document.querySelector('.contact_form_name_email')
+                    each(this.projects, project => {
+                        project.addEventListener('mouseenter', _ => {
             
-                    this.textfield.addEventListener('click', _ => {
-                        gsap.to(this.textSpan, {
-                            autoAlpha: 0,
-                            duration: 0.2, 
-                            ease: 'Power2.easeOut'
+                            each(this.projectTitles, title => {
+                                if(project.getAttribute('data-work-title') == title.getAttribute('data-work-title')){
+                                    title.style.opacity = 1                        
+                                }
+                            })
                         })
-                    })
-                    
-                    this.emailfield.addEventListener('click', _ => {
-                        gsap.to(this.emailSpan, {
-                            autoAlpha: 0,
-                            duration: 0.2, 
-                            ease: 'Power2.easeOut'
+            
+                        project.addEventListener('mouseleave', _ => {
+            
+                            each(this.projectTitles, title => {
+                                if(project.getAttribute('data-work-title') == title.getAttribute('data-work-title')){
+                                    title.style.opacity = 0                        
+                                }
+                            })
                         })
                     })
                 }
@@ -418,6 +417,12 @@ class App {
                         this.backToTop.addEventListener('click', (e) => {
                             this.scroll.scrollTo(target)
                         })
+
+                        this.backToTopMobile = document.querySelector('.home_footer_top_link_mobile')
+                        this.backToTopMobile.addEventListener('click', (e) => {
+                            this.scroll.scrollTo(target)
+                        })
+
                         document.querySelector('.home_video_section_element_back').play()
 
                         this.dt = DateTime.now().setZone("America/New_York")
@@ -428,27 +433,7 @@ class App {
                         
                     },
                     afterEnter() {
-                        this.textfield = document.querySelector('#textfield')
-                        this.emailfield = document.querySelector('#emailfield')
-                
-                        this.textSpan = document.querySelector('.contact_form_name_text')
-                        this.emailSpan = document.querySelector('.contact_form_name_email')
-                
-                        this.textfield.addEventListener('click', _ => {
-                            gsap.to(this.textSpan, {
-                                autoAlpha: 0,
-                                duration: 0.2, 
-                                ease: 'Power2.easeOut'
-                            })
-                        })
-                        
-                        this.emailfield.addEventListener('click', _ => {
-                            gsap.to(this.emailSpan, {
-                                autoAlpha: 0,
-                                duration: 0.2, 
-                                ease: 'Power2.easeOut'
-                            })
-                        })
+                 
                     }
             },  {
                 namespace: 'cruelove',
@@ -598,18 +583,6 @@ class App {
     }
 
     onChange(template) {
-        this.pages = {
-            about: new About(),
-            services: new Services(),
-            work: new Work(),
-            home: new Home(),
-            cruelove: new CrueLove(),
-            latereservation: new LateReservation(),
-            pzac: new PZAC(),
-            baucees: new Baucees(),
-            brio: new Brio(),
-            ivyhills: new Ivyhills()
-        }
 
         this.page = this.pages[template]
         this.page.create()
@@ -692,28 +665,12 @@ class App {
             })
         }
 
-        this.textfield = document.querySelector('#textfield')
-        this.emailfield = document.querySelector('#emailfield')
+        if(this.backToTopMobile){
 
-        this.textSpan = document.querySelector('.contact_form_name_text')
-        this.emailSpan = document.querySelector('.contact_form_name_email')
-
-        if(this.template === 'home' || this.template === 'about'){
-
-            this.textfield.addEventListener('click', _ => {
-                gsap.to(this.textSpan, {
-                    autoAlpha: 0,
-                    duration: 0.2, 
-                    ease: 'Power2.easeOut'
-                })
-            })
             
-            this.emailfield.addEventListener('click', _ => {
-                gsap.to(this.emailSpan, {
-                    autoAlpha: 0,
-                    duration: 0.2, 
-                    ease: 'Power2.easeOut'
-                })
+            this.backToTopMobile = document.querySelector('.home_footer_top_link_mobile')
+            this.backToTopMobile.addEventListener('click', (e) => {
+                this.scroll.scrollTo(target)
             })
         }
     }
@@ -722,6 +679,15 @@ class App {
     addLinkListeners () {
         const home = document.querySelector('.navigation_link')
         const nav = document.querySelectorAll('.navigation_list_link')
+
+        each(nav, link => {
+            link.addEventListener('click', (e) => {
+                if(e.currentTarget.href === window.location.href) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                }
+            })
+        })
     }
 }
 

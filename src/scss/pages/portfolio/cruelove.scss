@@ -104,45 +104,41 @@
 
 .work_card {
     position: fixed;
-    top: 55%;
+    bottom: 8%;
     z-index: 999999;
     right: 8.5rem;
-    width: 65.8rem;
-    height: 40rem;
+    width: 35.7rem;
     border-radius: 3rem;
     background-color: $color-ecru-white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: grid;
     grid-template-columns: 15% 85%;
-    grid-template-rows: 30% 40% 10% 25%;
+    grid-template-rows: 0.2fr 1fr 0.1fr 0.1fr;
     place-items: center start;
-    gap: 1rem;
+    row-gap: 1rem;
     padding: 2rem;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 
     @include media('<phone') {
-        top: 45%;
-        padding: 0rem 2rem 5rem;
-        width: 35rem;
-        height: 50vh;
+        padding: 2rem;
         right: 1.7rem;
-        display: grid;
-        grid-template-columns: 15% 85%;
-        grid-template-rows: 30% 40% 15% 15%;
-        row-gap: 1rem;
         place-items: center start;
-        transition: 0.5s all ease;
-
+        transition: all 0.5s ease;
     }
+
     &.shrink {
-        top: 85%;
+        transition: all 0.5s ease;
         display: grid;
         grid-template-columns: 15% 85%;
         grid-template-rows: 100%;
         place-items: center;
-        height: 10vh;
+        height: 7vh;
         padding: 0rem 2rem;
         border-radius: 2rem;
+
+        @include media('<phone') {
+            height: 11vh;
+        }
     }
 }
 
@@ -191,7 +187,7 @@
 
 
 .work_card_title {
-    @extend %title-96;
+    font-size: 4.8rem;
     grid-column: 2/-1;
     grid-row: 1/2;
     @include media('<phone') {
@@ -213,32 +209,32 @@
 }
 
 .work_card_paragraph {
-    @extend %paragraph-18;
+    font-size: 1.4rem;
 
     grid-column: 2/2;
     grid-row: 2/3;
     @include media('<phone') {
         grid-column: 2/2;
-        grid-row: 2/3;
+        // grid-row: 2/3;
         text-align: left;    
     }
 }
 
 .work_card_service {
-    @extend %paragraph-18;
+    font-size: 1.4rem;
 
     font-weight: 800;
     grid-column: 2/2;
     grid-row: 3/4;
     @include media('<phone') {
         grid-column: 2/2;
-        grid-row: 3/-1;
+        // grid-row: 3/-1;
         text-align: left;    
     }
 }
 
 .work_card_services_paragraph {
-    @extend %paragraph-18;
+    font-size: 1.4rem;
 
     align-self: start;
     grid-column: 2/2;
@@ -246,7 +242,7 @@
     @include media('<phone') {
         text-align: left;    
         grid-column: 2/2;
-        grid-row: 4/-1;
+        // grid-row: 4/-1;
     }
 
 }
@@ -254,14 +250,14 @@
 .work_card_service.work_card_service_late {
     grid-row: 3/4;
     @include media('<phone') {
-        grid-row: 3/4;
+        // grid-row: 3/4;
     }
 }
 
 .work_card_services_paragraph.work_card_services_paragraph_late {
     grid-row: 4/5;
     @include media('<phone') {
-        grid-row: 4/5;
+        // grid-row: 4/5;
     }
 
 }

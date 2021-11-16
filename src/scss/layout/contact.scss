@@ -4,103 +4,220 @@
     width: 100%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 85% 15%;
+    grid-template-rows: 45% 55%;
 
     @include media('<phone') {
-        grid-template-rows: 85% 15%;
+        grid-template-rows: 30% 70%;
     }
 }
 
+.about_contact_form{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
 .home_contact_wrapper{
-    margin-top: 8rem;
+    width: 100%;
+    height: 100%;
+    grid-row: 2/-1;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 76% 12% 12%;
+
+    @include media('<phone'){
+            grid-template-rows: 84% 8% 8%;
+    }
+}
+
+.about_contact_wrapper{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 55% 32% 7% 6%;
+
+    @include media('<phone'){
+        grid-template-rows:  67% 20% 7% 6%;
+    }
+}
+
+.home_contact_main_wrapper{
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 30% 70%;
 
-    padding: 0 8.3rem;
-
     @include media('<phone') {
         margin-top: 3rem;
-        grid-template-rows: 20% 80%;
-        padding: 0 2.8rem;
+        grid-template-rows: 80% 20%;
     }
 }
 
-.home_contact_form_details{
-    display: grid;
-    grid-template-rows: 80% 30%;
-    grid-template-columns: 100%;
-
-    @include media('<phone') {
-        width: 100%;
-        grid-template-rows: 100%;
-    }
-}
-
-.home_contact_form_details_wrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 6.3rem;
-
-    @include media('<phone') {
-        gap: 3rem;
-    }
-}
-
-.home_contact_form_details_title_wrapper{
-    position: relative;
-
+.about_contact_main_wrapper{
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-rows: 100%;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 50% 50%;
+    padding: 0 8.3rem;
+    gap: 5rem;
 
-    @include media('<phone'){
-        grid-template-columns: 60% 40%;
-        gap: 3rem;
+    @include media('<phone') {
+        padding: 0 2.8rem;
+        grid-row: 1/2;
+        align-self: end;
+        height: 70%;
+        grid-template-rows: 100%;
+        grid-template-columns: 100%;
     }
 }
 
-.home_contact_form_details_title{
-    @extend %title-100;
-
+.about_contact_main_details{
     width: 100%;
-    opacity: 1;
-    grid-row: 1/2;
-    grid-column: 1/2;
-    align-self: center;
-    @include media('<phone') {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 60%;
+    padding-bottom: 4rem;
+
+    @include media('<phone'){
         display: none;
     }
 }
 
-.home_contact_form_details_title_mobile{
-    @extend %title-100;
+.home_contact_form_details{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 70% 10% 20%;
+    grid-template-rows: 100%;
+    place-items: center start;
+    padding-left: 3rem;
 
-    display: none;
-    grid-row: 1/2;
-    grid-column: 1/-1;
     @include media('<phone') {
-        width: 30rem;
-        display: inline-block;
-        opacity: 1;
+        width: 100%;
+        grid-template-rows: 100%;
+        padding-left: 2rem;
     }
 }
 
-.home_contact_form_details_sub{
-    font-size: 1.5rem;
+.about_contact_form_details{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 60% 10% 10% 10% 10%;
+    grid-template-rows: 50% 50%;
+    padding: 8rem 8rem 0;
 
-    grid-row: 1/2;
-    grid-column: 2/-1;
-    justify-self: start;
+    @include media('<phone') {
+        grid-row: 2/3;
+        width: 100%;
+        grid-template-rows: 100%;
+        padding: 0 2rem;
+        place-items: end start;
+    }
+}
+
+
+.home_contact_form_details_title{
+    font-size: 28.8rem;
+
+    width: 100%;
+    opacity: 1;
+    grid-column: 1/4;
     align-self: center;
 
     @include media('<phone') {
-        font-size: 1.2rem;
-        margin-top: 3.5rem;
-        width: 100%;
-        justify-self: center;
-        align-self: start;
-        transform: translate(0%, 0%);
+        font-size: 7.2rem;
+    }
+}
+
+.about_contact_form_details_title{
+    opacity: 1;
+    visibility: inherit;
+    font-size: 28.8rem;
+    grid-column: 1/5;
+    grid-row: 1/2;
+
+    @include media('<phone') {
+        font-size: 7.2rem;
+        grid-column: 1/-1;
+    }
+}
+
+.home_contact_svg{
+    grid-column: 2/-1;
+    position: absolute;
+    height: 100%;
+    transform: translate(-15%, -40%);
+    transform-origin: center;
+    animation: rotateSVG 30s linear infinite;
+
+    @include media('<phone') {
+        transform: translate(-15%, -60%);
+        animation: mobileSVG 30s linear infinite;
+    }
+}
+
+.about_contact_svg{
+    width: 100%;
+    grid-column: 3/5;
+    grid-row: 1/2;
+    transform: translateY(-20%);
+    animation: rotateSVG2 30s linear infinite;
+
+    @include media('<phone') {
+        transform: translateY(-70%);
+        animation: mobileSVG2 30s linear infinite;
+    }
+}
+
+@keyframes rotateSVG {
+    0%{
+        transform: translate(-15%, -40%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-15%, -40%) rotate(360deg);
+    }
+}
+
+@keyframes rotateSVG2 {
+    0%{
+        transform: translateY(-20%) rotate(0deg);
+    }
+    100%{
+        transform: translateY(-20%) rotate(360deg);
+    }
+}
+
+@keyframes mobileSVG {
+    0%{
+        transform: translate(-15%, -60%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-15%, -60%) rotate(360deg);
+    }
+}
+
+@keyframes mobileSVG2 {
+    0%{
+        transform: translateY(-70%) rotate(0deg);
+    }
+    100%{
+        transform: translateY(-70%) rotate(360deg);
+    }
+}
+
+.about_contact_para{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    align-self: end;
+    margin-bottom: -1rem;
+    display: inline-block;
+
+    @include media('<phone'){
+        display: none;
     }
 }
 
@@ -109,26 +226,84 @@
     gap: 1rem;
 }
 
+.about_contact_form_details_links_wrapper{
+    display: flex;
+    gap: 1rem;
+
+    @include media('<phone') {
+        display: none;
+    }
+}
+
+.about_contact_main_detail_para{
+    align-self: end;
+    font-size: 4.8rem;
+    display: inline-block;
+
+    @include media('<phone') {
+        display: none;
+    }
+}
+
 .home_contact_form_details_links{
+    @extend %title-48;
+
+    border: 3px solid $color-black;
+    border-radius: 10rem;
+    width: 10.3rem;
+    height: 5.7rem;
+    text-align: center;
+    background-size: 300%;
+    transition: all 0.6s;
+    padding-top: 0.2rem;
+
+    @include media('<phone') {
+        font-size: 1.8rem;
+        border: 1.8px solid $color-black;
+        border-radius: 5rem;
+        padding-top: 0;
+        width: 4.2rem;
+        height: 2.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.about_contact_form_details_links_mobile{
+    display: none;
+
+    @include media('<phone') {
+        font-size: 1.8rem;
+        border: 1.8px solid $color-black;
+        border-radius: 5rem;
+        padding-top: 0;
+        width: 4.2rem;
+        height: 2.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.about_contact_form_details_links{
     @extend %title-120;
 
     border: 3px solid $color-black;
     border-radius: 10rem;
     width: 23.1rem;
-    height: 12rem;
+    height: 13.5rem;
     text-align: center;
     background-size: 300%;
     transition: all 0.6s;
-    font-size: 10rem;
-    padding-top: 1rem;
+    padding-top: 1.6rem;
 
     @include media('<phone') {
         border: 2px solid $color-black;
-        border-radius: 4rem;
+        border-radius: 5rem;
         padding-top: 0;
-        font-size: 4.8rem;
-        width: 10rem;
-        height: 6rem;
+        width: 4.2rem;
+        height: 2.3rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -143,116 +318,187 @@
 }
 
 .home_contact_form_wrapper{
-    margin-top: -2rem;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 16% 13% 13% 13% 40%;
     grid-template-rows: 100%;
+    gap: 4rem;
     place-items: start;
+    padding: 0 8.3rem;
 
     @include media('<phone') {
         grid-template-columns: 100%;
-        grid-template-rows: 25% 75%;
+        grid-template-rows: 25% 25% 25% 25%;
+        padding: 0 2.8rem;
+        gap: 0.2rem;
     }
 }
 
-.home_contact_form_details_wrapper{
+.about_contact_form_wrapper{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    grid-template-rows: 50% 50%;
+    place-items: center start;
+    padding-top: 10rem;
+    padding-left: 5rem;
+
+    @include media('<phone'){
+        align-self: end;
+        grid-template-columns: 100%;
+        grid-template-rows: 25% 25% 25% 25%;
+        padding-left: 0rem;
+        gap: 1.5rem;
+    }
+}
+
+.about_map{
     grid-column: 1/2;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-   justify-content: space-between;
+    grid-row: 1/2;
+
+    @include media('<phone'){
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+}
+
+.about_contact_details{
+    grid-column: 1/2;
+    grid-row: 2/2;
+
+    @include media('<phone'){
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+}
+
+.about_designer_details{
+    grid-column: 2/3;
+    grid-row: 2/2;
+
+    @include media('<phone'){
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+}
+
+.about_developer_details{
+    grid-column: 3/4;
+    grid-row: 2/2;
+
+    @include media('<phone'){
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+}
+
+.home_contact_details,
+.home_map,
+.home_designer_details,
+.home_developer_details{
+    width: 100%;
+}
+
+.home_contact_details,
+.home_map{
+    transform: translateY(-3px);
+}
+
+.home_contact_details_email,
+.home_contact_details_number,
+.home_map_link,
+.home_designer_title,
+.home_designer_link,
+.home_developer_title,
+.home_developer_link{
+    font-size: 1.8rem;
+}
+
+.home_contact_details_email,
+.home_contact_details_number,
+.home_map_link,
+.home_designer_link,
+.home_developer_link{
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.about_contact_details_email,
+.about_contact_details_number,
+.about_map_link,
+.about_designer_title,
+.about_designer_link,
+.about_developer_title,
+.about_developer_link{
+    font-size: 1.8rem;
+}
+
+.about_contact_details_email,
+.about_contact_details_number,
+.about_map_link,
+.about_designer_link,
+.about_developer_link{
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+
+.home_contact_form_details_wrapper{
+    height: 100%;
+
 
    @include media('<phone'){
        grid-row: 1/2;
    }
 }
 
-.home_contact_form_details_para{
-    width: 74.1rem;
+
+$speed: 25s;
+
+.footer_marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  
+  &:hover &_item { $speed: 20s }
+  
+  &_seperator { margin: 0 2rem; }
+  
+  &_item {
+    display: inline-block;
+    will-change: transform;
+    animation: marquee $speed linear infinite;
+  }
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+
+.footer_marquee {
+    background-color: $color-everglade;
+    color: $color-ecru-white;
+    padding: 1rem 0;
+    font-size: 4.8rem;
 
     @include media('<phone') {
-        align-self: start;
-        width: 25rem;
+        font-size: 2.4rem;
+        padding: 1.8rem 0;
     }
 }
-
-
-.contact_form{
-    grid-column: 2/3;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 33% 33% 33%;
-
-    @include media('<phone') {
-        margin-top: 8rem;
-        grid-column: 1/2;
-        grid-row: 2/3;
-    }
-    
-}
-
-.contact_form_field_row{
-    position: relative;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 33% 33% 33%;
-    gap: 1rem;
-
-    @include media('<phone') {
-        gap: 1rem;
-    }
-
-}
-
-
-.contact_form_name{
-    
-    font-size: 12rem;
-    position: absolute;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-
-    @include media('<phone') {
-        font-size: 4.8rem;
-    }
-}
-
-
-
-.contact_form_field{
-    @extend %title-120;
-
-    background: none;
-    border: none;
-    outline: none;
-    border-bottom: 3px solid $color-black;
-    width: 100%;
-    height: 15.4rem;
-
-    @include media('<phone') {
-        height: 6rem;
-    }
-
-}
-
-.contact_form_submit_button{
-    width: 14.2rem;
-    height: 14.2rem;
-    transition: all 0.6s;
-
-    @include media('<phone') {
-        width: 7rem;
-        height: 7rem;
-    }
-}
-
-.contact_form_submit_button:hover {
-    transform: translate(0.5rem, -0.5rem);
-}
-
 
 .home_footer{
-
+    // max-height: 8rem;
     display: flex;
     background: $color-tulip-tree;
     width: 100%;
@@ -264,7 +510,7 @@
     @include media('<phone') {
         display: grid;
         grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 100%;
         height: 100%;
         padding: 0 2.8rem;
     }
@@ -276,36 +522,82 @@
     gap: 2rem;
 
     @include media('<phone') {
-        grid-column: 1/-1;
-        grid-rows: 1/2;
         gap: 0.5rem;
+        justify-content: flex-start;
+
     }
 }
 
 .home_footer_timestamp_city,
 .home_footer_timestamp_time{
-    @extend %title-96;
+    @extend %title-48;
 
 }
 
+.home_footer_timestamp_city{
+    display: inline-block;
+
+    @include media('<phone'){
+        display: none;
+    }
+}
+
+.home_footer_timestamp_city_mobile{
+    display: none;
+    
+    @include media('<phone'){
+        font-size: 2.4rem;
+        display: inline-block;
+    }
+}
+
 .home_footer_timestamp_img{
-    width: 10.3rem;
-    height: 10.3rem;
+    width: 4rem;
+    height: 4rem;
 
     @include media('<phone') {
-        width: 4rem;
-        height: 4rem;
-        grid-column: 1/-1;
-        grid-rows: 1/2;
+        display: none;
     }
 }
 
 .home_footer_top {
-    @extend %title-96;
+    @extend %title-48;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
 
     @include media('<phone') {
-        grid-column: 1/-1;
-        grid-rows: 2/-1;
         justify-self: end;
+    }
+}
+
+
+.home_footer_top_link{
+    display: inline-block;
+
+    @include media('<phone') {
+        display: none;
+    }
+}
+
+.home_footer_top_link_mobile{
+    display: none;
+
+    @include media('<phone') {
+        display: block;
+        width: 2.8rem;
+        height: 2.1rem;
+    }
+}
+
+.home_footer_top_link_mobile_img{
+    display: none;
+
+    @include media('<phone') {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
     }
 }
