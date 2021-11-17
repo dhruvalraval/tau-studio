@@ -1,7 +1,7 @@
 import GSAP from 'gsap'
 import gsap from 'gsap/all'
 
-const GeneralTransition = ({container, color}) => {
+const GeneralTransition = ({color}) => {
     const path3 = document.querySelector('.loader_svg_path3')
 
     const zero = "M 0 100 V 100 Q 50 100 100 100 V 100 z"
@@ -35,17 +35,9 @@ const GeneralTransition = ({container, color}) => {
         ease: 'Power2.easeOut',
         attr: {d: finish},
         onComplete: _ => {
-            // LottieAnimation()
-            // path.setAttribute('d', zero)
-            // path2.setAttribute('d', zero)
             path3.setAttribute('d', zero)
         }
     }) 
-    // timeline.to(container, {
-    //     autoAlpha: 1,
-    //     duration: 0.2,
-    //     ease: 'Power2.easeIn'
-    // })
     return timeline
 }
 

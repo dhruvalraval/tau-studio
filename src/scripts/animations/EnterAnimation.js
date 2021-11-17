@@ -30,7 +30,7 @@ export default function EnterAnimation(preloader, preloaderText, container, colo
         duration: 0.4,
         ease: 'Power2.easeIn',
         onComplete: _ => {
-            const transition = GeneralTransition({container, color})
+            const transition = GeneralTransition({color})
             gsap.to(preloader, {
                 autoAlpha: 0,
                 duration: 0.1,

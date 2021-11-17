@@ -38,7 +38,8 @@ class App {
         this.container = document.querySelector('[data-scroll-container]')
         this.colorSlider = document.querySelector('input[name="blobColor"]')
         this.processingSlider = document.querySelector('input[name="blobProcess"]')
-        
+        this.loading = document.querySelector('.loading')
+
         this.dt = DateTime.now().setZone("America/New_York")
         this.nycHour = this.dt.hour
         this.nycMin = this.dt.minute
@@ -86,9 +87,7 @@ class App {
                 this.backToTop.addEventListener('click', (e) => {
                     this.scroll.scrollTo(target)
                 })
-            }
-
-            if(this.backToTopMobile){
+        
 
                 this.backToTopMobile = document.querySelector('.home_footer_top_link_mobile')
                 this.backToTopMobile.addEventListener('click', (e) => {
@@ -238,6 +237,7 @@ class App {
                     },
                     once: ({ next }) => {
                         const color = '#F3EFE4'
+                        this.loading.classList.toggle('done')
                         EnterAnimation(this.preloader, this.preloaderText, next.container, color)
                         this.scroll = new LocomotiveScroll({
                             el: this.container,
@@ -278,6 +278,8 @@ class App {
 
                     },
                     enter: ({ next }) => { 
+                        
+                        this.loading = document.querySelector('.loading')
 
                         const animationEnter = gsap.timeline()
                         animationEnter.to(next.container, {
@@ -297,6 +299,17 @@ class App {
                         window.setTimeout(_ => {
                             this.scroll.update();
                         }, 500)
+
+                        const preloadImages = (selector = 'img') => {
+                            return new Promise((resolve) => {
+                                imagesLoaded(document.querySelectorAll(selector), {background: true}, resolve);
+                            });
+                        };
+                        const box = document.querySelector('.container')
+                        preloadImages().then(() => {
+                            this.loading.classList.toggle('done')
+                            this.scroll.update()
+                        });
                     }
                 },
                 {   
@@ -437,6 +450,8 @@ class App {
                     }
             },  {
                 namespace: 'cruelove',
+                beforeEnter(){
+                },
                 afterEnter() {
 
                     
@@ -495,18 +510,6 @@ class App {
     onPreloaded () {
         if(this.template === 'work' || this.template === 'services'){
             const percent = '100%'
-            each(document.querySelectorAll('.preloader_text'),(text, i) => {
-                gsap.fromTo(text, {
-                    autoAlpha: 0,
-                    delay: 0.2*i,
-                    ease: 'Power2.easeIn',
-                },{
-                    autoAlpha: 1,
-                    duration: 0.4,
-                    delay: 0.2*i,
-                    ease: 'Power2.easeIn'
-                })
-            })
 
             //animate circle on loading bar
             gsap.to(document.querySelector('.preloader_circle'), {
@@ -543,19 +546,6 @@ class App {
         
             loadingProgress = (loadedCount/images)
             let percent = `${loadingProgress*100}%`
-
-            each(document.querySelectorAll('.preloader_text'),(text, i) => {
-                gsap.fromTo(text, {
-                    autoAlpha: 0,
-                    delay: 0.2*i,
-                    ease: 'Power2.easeIn',
-                },{
-                    autoAlpha: 1,
-                    duration: 0.4,
-                    delay: 0.2*i,
-                    ease: 'Power2.easeIn'
-                })
-            })
 
             //animate circle on loading bar
             gsap.to(document.querySelector('.preloader_circle'), {
@@ -663,11 +653,7 @@ class App {
             this.backToTop.addEventListener('click', (e) => {
                 this.scroll.scrollTo(target)
             })
-        }
 
-        if(this.backToTopMobile){
-
-            
             this.backToTopMobile = document.querySelector('.home_footer_top_link_mobile')
             this.backToTopMobile.addEventListener('click', (e) => {
                 this.scroll.scrollTo(target)

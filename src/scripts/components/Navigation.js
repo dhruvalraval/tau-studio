@@ -20,47 +20,69 @@ export default class Navigation{
 
     onChange(template) {
         if(window.innerWidth < 750) {
-          each(document.querySelectorAll('.menu_one'), menu => {
-              if(menu.classList.contains('open')){
-                  menu.classList.remove('open')
-                  gsap.to('.navigation_list_item', {
-                      autoAlpha: 0,
-                      stagger: 0.2,
-                      ease: 'Power2.easeOut'
-                  })
-              } else {
-                  document.querySelector('.hamburger').addEventListener('click', _ => {
-                      each(document.querySelectorAll('.menu_one'), menu => {
-                          menu.classList.toggle('open')
-                          if(menu.classList.contains('open')) {
-                              gsap.to('.navigation_list_item', {
-                                  autoAlpha: 1,
-                                  stagger: 0.2,
-                                  ease: 'Power2.easeOut'
-                              })  
-                          } else {
-                              gsap.to('.navigation_list_item', {
-                                  autoAlpha: 0,
-                                  stagger: 0.2,
-                                  ease: 'Power2.easeOut'
-                              })
-                          }
-                      })
-                  })
-              }
-          })
+            this.elements.logo.addEventListener('click', _ => {
+                each(document.querySelectorAll('.menu_one'), menu => {
+                    menu.classList.add('open')
+                    if(menu.classList.contains('open')) {
+                        gsap.to('.navigation_list_item', {
+                            autoAlpha: 1,
+                            stagger: 0.2,
+                            ease: 'Power2.easeOut'
+                        })  
+                    } else {
+                        gsap.to('.navigation_list_item', {
+                            autoAlpha: 0,
+                            stagger: 0.2,
+                            ease: 'Power2.easeOut'
+                        })
+                    }
+                })
 
-      }
+                    
+                
+            })
+
+            each(document.querySelectorAll('.menu_one'), menu => {
+                if(menu.classList.contains('open')){
+                    menu.classList.remove('open')
+                    gsap.to('.navigation_list_item', {
+                        autoAlpha: 0,
+                        stagger: 0.2,
+                        ease: 'Power2.easeOut'
+                    })
+                } else {
+                    document.querySelector('.hamburger').addEventListener('click', _ => {
+                        each(document.querySelectorAll('.menu_one'), menu => {
+                            menu.classList.toggle('open')
+                            if(menu.classList.contains('open')) {
+                                gsap.to('.navigation_list_item', {
+                                    autoAlpha: 1,
+                                    stagger: 0.2,
+                                    ease: 'Power2.easeOut'
+                                })  
+                            } else {
+                                gsap.to('.navigation_list_item', {
+                                    autoAlpha: 0,
+                                    stagger: 0.2,
+                                    ease: 'Power2.easeOut'
+                                })
+                            }
+                        })
+                    })
+                }
+            })
+
+        }
         if(template == 'services') {
             gsap.to(this.element, {
-              color: COLOR_ECRU_WHITE,
-              duration: 0.5
+                color: COLOR_ECRU_WHITE,
+                duration: 0.5
             })
             
             gsap.to(this.elements.logo, {
-              autoAlpha: 1,
-              delay: 0.75,
-              duration: 0.75
+                autoAlpha: 1,
+                delay: 0.75,
+                duration: 0.75
             })
 
             each(this.element.links, link => {
@@ -72,15 +94,15 @@ export default class Navigation{
             })
 
             each(this.elements.ham, menu => {
-              gsap.to(menu, {
-                background: COLOR_ECRU_WHITE,
-                duration: 0.5
-              })
+                gsap.to(menu, {
+                    background: COLOR_ECRU_WHITE,
+                    duration: 0.5
+                })
             })
 
 
       
-          } else {
+        } else {
       
             gsap.to(this.element, {
               color: COLOR_BLACK,
@@ -102,13 +124,13 @@ export default class Navigation{
             })
 
             each(this.elements.ham, menu => {
-              menu.classList.remove('open')
-              gsap.to(menu, {
-                background: COLOR_BLACK,
-                duration: 0.5
-              })
+                // menu.classList.remove('open')
+                gsap.to(menu, {
+                    background: COLOR_BLACK,
+                    duration: 0.5
+                })
             })
       
-          }
+        }
     }
 }

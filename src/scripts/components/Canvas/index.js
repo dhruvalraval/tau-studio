@@ -66,8 +66,12 @@ export default class Canvas {
 	}
 
 	createGeometry() {
-
-		let blobGeometry = new THREE.SphereGeometry(1.2, 80, 80)
+		let blobGeometry
+		if(window.innerWidth < 750){
+			blobGeometry = new THREE.SphereGeometry(1.2, 10, 10)
+		} else {
+			blobGeometry = new THREE.SphereGeometry(1.2, 40, 40)
+		}
 		blobGeometry.setAttribute("basePosition", new THREE.BufferAttribute().copy(blobGeometry.attributes.position))
 
 		const blobMaterial = new THREE.MeshPhongMaterial( {
@@ -335,7 +339,7 @@ export default class Canvas {
 					this.mesh2.position.y = gsap.utils.interpolate(this.mesh2.position.y,scroll*0.003-6, 0.1 )
 				}  else {
 					this.mesh.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003, 0.1 )
-					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003 - 140, 0.1 )
+					this.mesh2.position.y = gsap.utils.interpolate(this.mesh.position.y,scroll*0.003 - 180, 0.1 )
 				}
 			}
 			else if(scroll<2){
