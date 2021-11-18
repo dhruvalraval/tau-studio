@@ -529,16 +529,10 @@ class App {
                 
             }
         }
-        const timeline = gsap.timeline()
-        timeline.to('.pretext1', {
-            autoAlpha: 1,
-            duration: 0.4,
-            ease: 'Power2.easeOut'
-        })
-        timeline.to('.pretext2', {
-            autoAlpha: 1,
-            duration: 0.4,
-            ease: 'Power2.easeOut'
+        each(document.querySelectorAll('.preloader_text'),(text, i) => {
+            window.setTimeout(_ => {
+                text.classList.add('loaded')
+            }, 400*i)
         })
         
         let LOAD_FLAG = false
