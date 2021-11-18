@@ -529,18 +529,15 @@ class App {
                 
             }
         }
-
-        gsap.to('.pretext1', {
+        const timeline = gsap.timeline()
+        timeline.to('.pretext1', {
             autoAlpha: 1,
             duration: 0.4,
-            delay: 0.2,
             ease: 'Power2.easeOut'
         })
-
-        gsap.to('.pretext2', {
+        timeline.to('.pretext2', {
             autoAlpha: 1,
-            duration: 0.3,
-            delay: 0.4,
+            duration: 0.4,
             ease: 'Power2.easeOut'
         })
         
@@ -579,7 +576,7 @@ class App {
         const Complete= () => {
             window.setTimeout(_ => {
                 if(LOAD_FLAG === true) this.startBarba()
-            }, 500)
+            }, 1000)
             this.update()
 
         }
