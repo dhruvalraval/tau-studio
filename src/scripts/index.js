@@ -102,7 +102,9 @@ class App {
             if(footerTime){
                 footerTime.textContent = `[${this.nycHour}:${this.nycMin}]`
             }
-
+            window.setTimeout(_ => {
+                this.scroll.update()
+            }, 2500)
         });
         
         barba.init({
@@ -528,6 +530,20 @@ class App {
             }
         }
 
+        gsap.to('.pretext1', {
+            autoAlpha: 1,
+            duration: 0.4,
+            delay: 0.2,
+            ease: 'Power2.easeOut'
+        })
+
+        gsap.to('.pretext2', {
+            autoAlpha: 1,
+            duration: 0.3,
+            delay: 0.4,
+            ease: 'Power2.easeOut'
+        })
+        
         let LOAD_FLAG = false
         this.onResize()
         const imgLoad = imagesLoaded('.content')
